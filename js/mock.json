@@ -1,0 +1,62 @@
+{
+  "resultCode": "400",
+  "resultObject": [
+    {
+      "id": "2",
+      "time": "新闻时间2",
+      "title": "1",
+      "context1": "内容2",
+      "context2": null,
+      "context3": null,
+      "context4": null,
+      "writeTime": "2019-57-225 23:08:823",
+      "imgPath": "images/banner2.png",
+      "type": "2",
+      "live": "0",
+      "entitle": null,
+      "encontext1": null,
+      "encontext2": null,
+      "encontext3": null,
+      "encontext4": null,
+      "videoPath":"images/movie.mp4"
+    },
+    {
+      "id": "22",
+      "time": "123",
+      "title": "2",
+      "context1": "123",
+      "context2": null,
+      "context3": null,
+      "context4": null,
+      "writeTime": "2019-08-15 16:25:07",
+      "imgPath": "images/banner3.png",
+      "type": "2",
+      "live": "0",
+      "entitle": null,
+      "encontext1": null,
+      "encontext2": null,
+      "encontext3": null,
+      "encontext4": null,
+      "videoPath":"images/banner.mp4"
+    },
+    {
+      "id": "2",
+      "time": "新闻时间2",
+      "title": "3",
+      "context1": "内容2",
+      "context2": null,
+      "context3": null,
+      "context4": null,
+      "writeTime": "2019-57-225 23:08:823",
+      "imgPath": "images/banner4.png",
+      "type": "2",
+      "live": "0",
+      "entitle": null,
+      "encontext1": null,
+      "encontext2": null,
+      "encontext3": null,
+      "encontext4": null,
+      "videoPath":"images/banner.mp4"
+    }
+  ]
+}

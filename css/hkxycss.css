@@ -1,0 +1,542 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.xy_banner {
+  width: 100%;
+  height: 7rem;
+}
+
+.xy_banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shadowLight {
+  box-shadow: -.1rem 0 .1rem rgba(0, 0, 0, .04),
+  .1rem 0px .1rem rgba(0, 0, 0, .04),
+  0px .1rem .1rem rgba(0, 0, 0, .04);
+}
+
+.xy_found {
+  width: 16rem;
+  height: 3.5rem;
+  margin: -.74rem auto 0;
+  position: relative;
+  z-index: 99;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: .5rem .94rem 0;
+}
+
+.xy_blueline {
+ /*  width: .5rem;
+  height: .08rem; */
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  transition-duration: .5s;
+}
+
+.xy_title {
+  font-size: .36rem;
+  text-align: center;
+  line-height: .36rem;
+  margin: .42rem 0;
+}
+
+.xy_found .xy_text {
+  line-height: .3rem;
+  font-size: .21rem;
+  color: #2b2b2b;
+}
+
+.xy_mission {
+  padding: .88rem 0 0;
+  margin: .8rem 0 1.35rem;
+  width: 100%;
+  height: 3.6rem;
+  background: url("../images/xy_mission.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+
+.xy_mission .xy_text {
+  font-size: .28rem;
+  color: #111;
+  text-align: center;
+}
+
+.xy_card {
+  width: 16rem;
+  height: 4.3rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.xy_left .xy_cd_bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.xy_right .xy_cd_bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.xy_left .xy_cd_main {
+  position: absolute;
+  top: .5rem;
+  left: 8.27rem;
+}
+
+.xy_right .xy_cd_main {
+  position: absolute;
+  top: .5rem;
+  right: 8.27rem;
+}
+
+.xy_cd_bg {
+  width: 9.8rem;
+  height: 4.3rem;
+}
+
+.xy_cd_bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.xy_cd_main {
+  width: 5.1rem;
+  height: 3.2rem;
+  background-color: #fff;
+  padding: .58rem;
+}
+
+.xy_cd_main .xy_blueline {
+  margin: 0;
+}
+
+.xy_cd_main .xy_title {
+  text-align: left;
+  margin: .23rem 0 .37rem;
+}
+
+.xy_cd_main .xy_text {
+  font-size: .28rem;
+  color: #111;
+  line-height: .45rem;
+}
+
+.xy_right .xy_cd_main {
+  padding: .46rem .65rem;
+}
+
+.xy_right .xy_cd_main .xy_text {
+  font-size: .28rem;
+  color: #111;
+  line-height: .42rem;
+}
+
+#xy_card_left {
+  margin-bottom: 1.2rem;
+}
+
+.xy_tit {
+  font-size: .45rem;
+  line-height: .45rem;
+  text-align: center;
+}
+
+#xy_position {
+  padding: 1.6rem 0 1.3rem;
+}
+
+#xy_position .xy_blueline, #xy_news .xy_blueline {
+  margin-bottom: .37rem;
+}
+
+.xy_flexBox {
+  display: flex;
+  justify-content: space-between;
+  width: 16rem;
+  margin: 0 auto;
+}
+
+.xy_deformBox {
+  width: 8rem;
+  height: 4.9rem;
+  position: relative;
+  transition-duration: .5s;
+  cursor: pointer;
+}
+
+.xy_deformBox img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  opacity: 0;
+}
+
+.xy_deformBox:hover img {
+  opacity: 1;
+}
+
+.xy_deformBox:hover .xy_main {
+  background-color: rgba(0, 0, 0, .4);
+  color: #fff;
+}
+
+.xy_deformBox .xy_blueline {
+  margin: 0 0 .8rem;
+}
+
+.xy_deformBox:hover .xy_blueline {
+  width: .88rem;
+  background-color: #fff;
+}
+
+.xy_deformBox .xy_main {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: .8rem 1.14rem;
+  color: #111;
+  transition-duration: .5s;
+}
+
+.xy_name .xy_none {
+  font-size: .43rem;
+  line-height: .43rem;
+  display: block;
+  margin-bottom: .28rem;
+}
+
+.xy_name .xy_ntwo {
+  font-size: .24rem;
+  line-height: .24rem;
+  display: block;
+  margin-bottom: .7rem;
+}
+
+.xy_main .xy_des {
+  font-size: .24rem;
+  line-height: .24rem;
+  text-indent: -.11rem;
+}
+
+#xy_news {
+  margin: 1.4rem 0 1.1rem;
+}
+
+.xy_newslist {
+  width: 16rem;
+  margin: 0 auto .6rem;
+  padding: .22rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.xy_newslist .xy_time {
+  width: 1rem;
+  text-align: center;
+}
+
+.xy_newslist .xy_time .xy_day {
+  font-size: .56rem;
+  color: #2d83d6;
+  line-height: .56rem;
+}
+
+.xy_newslist .xy_time .xy_date {
+  font-size: .24rem;
+  color: #333;
+}
+
+.xy_newslist .xy_imgbox {
+  width: 3.35rem;
+  height: 2.17rem;
+}
+
+.xy_newslist .xy_imgbox img {
+  width: 100%;
+  height: 100%;
+}
+
+.xy_newslist .xy_main {
+  width: 10.5rem;
+  height: 2.17rem;
+}
+
+.xy_newslist .xy_name {
+  font-size: .3rem;
+  color: #242424;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.xy_newslist .xy_text {
+  font-size: .22rem;
+  line-height: .4rem;
+  color: #333;
+}
+
+.xy_showMore {
+  cursor: pointer;
+  width: 16rem;
+  color: #267fd5;
+  font-size: .23rem;
+  line-height: .23rem;
+  text-align: right;
+  margin: 0 auto;
+  display: block;
+}
+
+@media screen and (max-width: 750px) {
+  .xy_banner {
+    height: 9.21rem;
+  }
+
+  .xy_found {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 1.22rem .69rem;
+  }
+
+  .xy_blueline {
+ /*    width: 1.02rem;
+    height: .1rem; */
+  }
+
+  .xy_title {
+    font-size: .717rem;
+    line-height: .717rem;
+    margin: .486rem 0;
+  }
+
+  .xy_found .xy_text {
+    line-height: .87rem;
+    font-size: .59rem;
+  }
+
+  .xy_found.shadowLight {
+    box-shadow: none;
+  }
+
+  .xy_mission {
+    padding: 1.17rem 0 0;
+    margin: 0;
+    height: 5.12rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .xy_mission .xy_text {
+    font-size: .59rem;
+  }
+
+  .xy_card {
+    width: 100%;
+    height: 8.45rem;
+  }
+
+  .xy_cd_bg {
+    width: 13.8rem;
+    height: 6.13rem;
+  }
+
+  .xy_cd_main {
+    width: 11.2rem;
+    height: 7.16rem;
+    background-color: #fff;
+    padding: 1.54rem .81rem 0;
+  }
+
+  .xy_left .xy_cd_main {
+    top: 1.28rem;
+    left: 7.3rem;
+  }
+
+  .xy_cd_main .xy_title {
+    text-align: left;
+    margin: .43rem 0 .9rem;
+  }
+
+  .xy_cd_main .xy_text {
+    font-size: .59rem;
+    line-height: .92rem;
+  }
+
+  .xy_right .xy_cd_main {
+    padding: 1.54rem .81rem 0;
+    top: 1.28rem;
+    right: 7.3rem;
+  }
+
+  .xy_right .xy_cd_main .xy_text {
+    font-size: .56rem;
+    color: #111;
+    line-height: .87rem;
+  }
+
+  #xy_card_left {
+    margin-bottom: 1.5rem;
+  }
+
+  .xy_tit {
+    font-size: .716rem;
+    line-height: .716rem;
+    margin: 0;
+  }
+
+  #xy_position .xy_blueline, #xy_news .xy_blueline {
+    margin-bottom: .51rem;
+  }
+
+  #xy_position {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .xy_flexBox {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0 .61rem;
+  }
+
+  .xy_deformBox {
+    width: 100%;
+    height: 13.77rem;
+    cursor: pointer;
+    box-shadow: -.1rem 0 .1rem rgba(0, 0, 0, .04),
+    .1rem 0px .1rem rgba(0, 0, 0, .04),
+    0px .1rem .1rem rgba(0, 0, 0, .04);
+    margin-bottom: .5rem;
+  }
+
+  .xy_deformBox img {
+    width: 100%;
+    height: 10.57rem;
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
+
+  .xy_deformBox .xy_main {
+    width: 100%;
+    height: 3.2rem;
+    top: 10.57rem;
+    padding: .5rem 1rem 0;
+  }
+
+  .xy_deformBox .xy_blueline {
+    display: none;
+  }
+
+  .xy_name {
+    margin-bottom: .3rem;
+  }
+
+  .xy_name .xy_none, .xy_name .xy_ntwo {
+    font-size: .65rem;
+    line-height: .65rem;
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .xy_main .xy_des {
+    font-size: .55rem;
+    line-height: .55rem;
+    text-indent: -.25rem;
+  }
+
+  .xy_deformBox:hover .xy_main {
+    background-color: rgba(0, 0, 0, 0);
+    color: #333;
+  }
+
+  #xy_newsBox {
+    padding: 0 .61rem;
+  }
+
+  .xy_newslist {
+    width: 100%;
+    margin: 0 0 .5rem;
+    display: block;
+    position: relative;
+    height: 13.77rem;
+    cursor: pointer;
+  }
+
+  .xy_newslist .xy_time {
+    width: 3rem;
+    position: absolute;
+    left: 0;
+    bottom: .75rem;
+  }
+
+  .xy_newslist .xy_time .xy_day {
+    font-size: .9rem;
+    line-height: .9rem;
+  }
+
+  .xy_newslist .xy_time .xy_date {
+    font-size: .5rem;
+    color: #333;
+  }
+
+  .xy_newslist .xy_imgbox {
+    width: 100%;
+    height: 10.57rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .xy_newslist .xy_main {
+    width: 14rem;
+    height: 3.3rem;
+    position: absolute;
+    right: .5rem;
+    bottom: 0;
+    padding-top: .8rem;
+  }
+
+  .xy_newslist .xy_name {
+    font-size: .62rem;
+    line-height: .62rem;
+    margin-bottom: .4rem;
+  }
+
+  .xy_newslist .xy_text {
+    font-size: .56rem;
+    line-height: .56rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #666;
+  }
+
+  .xy_showMore {
+    width: 100%;
+    font-size: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    display: block;
+    padding: .18rem;
+    margin: 1rem 0;
+  }
+}

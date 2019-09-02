@@ -1,0 +1,13 @@
+.DS_Store
+images/
+dist/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+package-lock.json

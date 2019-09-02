@@ -1,0 +1,657 @@
+.navbar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.navbar-static-top {
+	height: 102px;
+	max-height: 102px;
+}
+
+body {
+	padding-top: 102px;
+}
+
+#angle, #publish {
+	padding-top: 102px;
+	margin-top: -102px;
+}
+
+@media screen and (max-width: 991px) {
+	.navbar-static-top {
+		height: 78px;
+		max-height: 78px;
+	}
+	body {
+		padding-top: 78px;
+	}
+	#angle, #publish {
+		padding-top: 78px;
+		margin-top: -38px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.navbar-static-top {
+		height: 58px;
+		max-height: 58px;
+	}
+	body {
+		padding-top: 58px;
+	}
+	#angle, #publish {
+		padding-top: 58px;
+		margin-top: -58px;
+	}
+}
+
+@media ( min-width : 991px) and (max-width: 1202px) {
+	.navbar-static-top .navbar-nav>li>a {
+		padding: 0 8px;
+		font-size: 15px;
+	}
+}
+/* 导航 */
+.gyhk-nav{
+	text-align: left;
+    padding-left:calc(10%) !important;
+}
+.gyhk-nav li{
+	width: calc(12% - 30px)!important;
+}
+.cybj-nav{
+	text-align: left;
+    padding-left: calc(15%) !important;
+}
+.cybj-nav li{
+	width: 150px!important;
+} 
+.gjhgl-nav{
+	text-align: center;
+    padding-left:calc(15%) !important;
+}
+.hksj-nav{
+	text-align: right;
+    padding-left:calc(50%) !important;
+}
+.rczl-nav{
+    text-align: center;
+    padding-left:calc(35%) !important;
+}
+
+
+
+/* 关于海科 */
+.dev-txt {
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 0;
+	right: 0;
+	width: 1300px;
+	height: 144px;
+	font-family: PingFangSC-Medium;
+	font-size: 34px;
+	text-align: center;
+	transform: translateY(-50%);
+	color: #fff;
+	margin: 0 auto;
+	line-height: 48px;
+	letter-spacing: 0;
+}
+.dev-text-pc {
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 0;
+	right: 0;
+	font-family: PingFangSC-Medium;
+	font-size: 25px;
+	text-align: center;
+	transform: translateY(-50%);
+	color: #fff;
+	margin: 0 auto;
+	line-height: 48px;
+	letter-spacing: 0;
+	padding: 0 14% 0 14%;
+}
+.dev-text-ad{
+	display: inline-block;
+	left: 0;
+	right: 0;
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	/* transform: translateY(-50%); */
+	color: #3d3f41;
+	margin: 0 auto;
+	letter-spacing: 0;
+	padding: 3% 3%;
+}
+.containers > ul > li{
+	margin-top: 0!important;
+}
+.containers > ul{
+	margin-top: -23px;!important;
+}
+    
+.organize-head li h3:before {
+	height: 14px;
+	width: 14px;
+	border-bottom: 14px solid #c9c9c9;
+	border-bottom-color: #C9C9C9;
+	border-radius: 10px;
+	border-right: none;
+	bottom: -7px;
+}
+
+.organize-head li h3:after {
+	display: none;
+}
+
+.about-time-h {
+	color: #2D83D6 !important;
+	border-bottom-color: #C9C9C9 !important;
+}
+
+.his-d {
+	position: relative;
+}
+
+.his-di {
+	position: absolute;
+	padding: 5px !important;
+	width: 100%;
+}
+
+.his-dd {
+	position: absolute;
+	padding: 40px 0 0 33px;
+}
+
+.his-ddi {
+	padding: 0 !important;
+}
+
+.his-ddp {
+	padding-left: 90px !important;
+	padding-right: 20px !important;
+	margin-top: -60px !important;
+	font-size: 18px !important;
+	color: #333333 !important;
+	letter-spacing: 0;
+	line-height: 25px;
+}
+/* 战略组织 */
+.org-title-h {
+	/* font-family: PingFangSC-Medium; */
+	font-size: 38px;
+	color: #333333;
+	letter-spacing: 0;
+	line-height: 53px;
+}
+.zlzz-div{
+	position: relative;
+}
+.zlzz-p{ 
+	position: absolute;
+    margin-top: 20px;
+    top: 0;
+    left: 20%;
+}
+ .features-item:hover h3:before{
+	 color:#084279;
+	height: 23px;
+    width: 23px;
+    border-bottom: 24px solid #c9c9c9;
+    border-bottom-color: #C9C9C9;
+    border-radius: 23px;
+    border-right: none;
+    bottom: -12px;
+ } 
+ .features-item:hover h3{
+	color:#084279!important;
+ } 
+/* 产业布局 */
+.eq-text-top {
+	padding: 50px 0px 20px 0px;
+}
+
+.eq-text-center {
+	padding: 90px 0px 85px 0px;
+}
+
+.eq-text-bot {
+	padding: 0px 0px 30px 0px;
+}
+/* 人才战略 */
+.process-head-li {
+	width: 135px !important;
+	height: 135px !important;
+	line-height: 135px !important;
+	font-size: 20px !important;
+}
+.i-mobile{
+	display: inline!important;
+}
+.zplc-mobile li:nth-child(2n+1){
+	border: 2px solid #3085d7!important;
+	width: 80px !important;
+    height: 80px !important;
+    line-height: 80px !important;
+    font-size: 9px !important;
+    border-radius: 50%!important;
+}
+.p-bm-m {
+	margin-bottom: 10px;
+}
+
+.banner-txt-h1 {
+	margin-bottom: 20px;
+	font-size: 60px;
+	line-height: 1.3;
+	letter-spacing: 3px;
+	color: #fff;
+}
+
+.banner-txt-h2 {
+	font-size: 46px;
+	line-height: 1.2;
+	margin-bottom: 30px;
+	font-family: "Poppins", Arial, sans-serif;
+	letter-spacing: 2px;
+	color: #fff;
+	line-height: 1.2;
+	margin-bottom: 30px;
+	font-family: "Poppins", Arial, sans-serif;
+	letter-spacing: 2px;
+}
+@media screen and (max-width: 768px) {
+	.banner-txt-h1 {
+	margin-bottom: 5px;
+	font-size: 14px;
+	line-height: 1.3;
+	letter-spacing: 3px;
+	color: #fff;
+}
+
+.banner-txt-h2 {
+	font-size: 14px;
+	line-height: 1.2;
+	margin-bottom: 30px;
+	font-family: "Poppins", Arial, sans-serif;
+	letter-spacing: 2px;
+	color: #fff;
+	line-height: 1.2;
+	margin-bottom: 30px;
+	font-family: "Poppins", Arial, sans-serif;
+	letter-spacing: 2px;
+}
+	
+}
+.contact-txt {
+	font-family: PingFangSC-Regular;
+	font-size: 16px;
+	color: #333333;
+	text-align: center;
+}
+
+.contact-mt {
+	margin-top: 40px;
+}
+/*导航栏*/
+/*人才招聘banner视频*/
+.videoed {
+	display: none;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 45%;
+	top: 35%;
+	z-index: 99;
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+.videos {
+	display: none;
+	border: 10px solid green;
+	position: fixed;
+	/*left:50%; 
+	top:50%; 
+	margin-left:-320px; 
+	margin-top:-210px; */
+	z-index: 100;
+	pading: 20px;
+	width: 500px;
+	height: 380px;
+}
+
+.vclose {
+	position: absolute;
+	right: 1%;
+	top: 1%;
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+/*宣传片视频**/
+.videoeds {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	left: 50%;
+	top: 50%;
+	margin-top: -15px;
+	margin-left: -15px;
+	border-radius: 100%;
+	z-index: 99;
+	cursor: pointer;
+}
+
+.videoeds1 {
+	display: none;
+}
+
+.videoeds2 {
+	display: none;
+}
+
+.videoeds3 {
+	display: none;
+}
+
+.videoeds4 {
+	display: none;
+}
+
+.videoeds5 {
+	display: none;
+}
+
+.publish-title {
+	text-align: center;
+	margin-top: 5px;
+	font-size: 18px;
+}
+.public-ul{
+	text-align: center;
+	width: calc(100% - 30px);
+	padding-bottom: 30px;
+}
+/* 海科视角 */
+.public-li {
+	margin: 0 auto !important;
+	height: 500px;
+	padding-top: 40px;
+}
+
+.public-l1 {
+	position: absolute;
+	transform: rotate(-30deg);
+	left: -240px;
+	top: 20px;
+}
+
+.public-l2 {
+	position: absolute;
+	transform: rotate(-15deg);
+	left: -120px;
+	top: 10px;
+}
+
+.public-c {
+	position: absolute;
+	top: 10px;
+}
+
+.public-r1 {
+	position: absolute;
+	transform: rotate(30deg);
+	left: 240px;
+	top: 20px;
+}
+
+.public-r2 {
+	position: absolute;
+	transform: rotate(15deg);
+	left: 120px;
+	top: 10px;
+}
+
+.public-p {
+	font-family: PingFangSC-Regular;
+	font-size: 24px;
+	color: #333333;
+	letter-spacing: 0;
+	text-align: left;
+}
+
+.m-p-ul {
+	text-align: center;
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/* 海科研究院 */
+.zl-p {
+	margin-top: 24px;
+	font-size: 24px;
+	color: #333333;
+	text-align: center;
+	letter-spacing: 0;
+	line-height: 33px;
+}
+.arrow-i{
+	padding-left:7px;
+	padding-right:7px;
+}
+.core-ul{
+	align-items: center;
+    justify-content: center;
+    display: -webkit-flex;
+}
+.core-li-m{
+	margin-top: -10px;
+    margin-bottom: 10px !important;
+}
+#patent-ul {
+	width: 100%;
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: pre-wrap;
+}
+
+/*产品与服务begin*/
+/*左侧导航begin*/
+.nav-box{
+	padding-top: 5%;
+}
+.nav-box-left{
+	
+	/* width:220px; */
+	width:15%;
+	float:left;
+	border-left:1px solid #ddd;
+}
+.nav-box-left-ul > li + li{
+	margin-top:0;
+}
+#left-ul{
+	border-bottom: 1px solid #fff
+	
+}
+.nav-box-left-ul > li > a{
+	color:black;
+	border-radius:0px;
+	text-align:left;
+	padding: 18px 15px;
+}
+.nav-box-left-ul > li.active > a, .nav-box-left-ul > li.active > a:hover, .nav-box-left-ul > li.active > a:focus{
+	color:#39a5ff;
+}
+#left-ul > li.active > a, #left-ul > li.active > a:hover, #left-ul > li.active > a:focus {
+	color:#39a5ff;
+	background-color: #fff;
+    border-bottom-color: #443b3b00;
+	
+    cursor: default;
+	border: 1px solid #fff;
+	
+}
+#left-ul > li.active{
+	border-left: 3px solid #39a5ff;
+	
+}
+
+.nav-box-left-ul > li >a:hover{
+	border-color: #fff;
+	background-color: #fff;
+	color:#39a5ff;
+}
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.42857;
+    /* border: 1px solid transparent; */
+    border-radius: 4px 4px 0 0;
+}
+.nav-box-right{
+	width:75%;
+	float:right;
+	border:1px solid #ddd;
+}
+/*左侧导航end*/
+/*右侧内容begin*/
+.text-li-left{
+	float: left;
+    width: 50%;
+}
+.text-li-right{
+	float: right;
+    width: 50%;
+}
+.table > tbody > tr > td{
+	padding: 15px;
+    vertical-align: top;
+    border-top: 1px solid #fff;
+	padding-top: 30px;
+}
+.content-right{
+	border-top: 1px solid #ddd;
+}
+.tab-pane{
+	padding:30px;
+}
+.table > tbody > tr > td> p:first-child{
+	font-size: 18px;
+}
+.table > tbody > tr > td> p:nth-child(2){
+	font-size: 16px;
+	color: #39a5ff;
+}
+.nav-box-right h4{
+	font-weight:900
+}
+#xthxp h5{
+	font-size: 16px;
+	padding-top: 40px;
+	color: #39a5ff;
+}
+
+#xthxp table > tbody > tr > td{    
+padding: 3px;
+    vertical-align: top;
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+	}
+.content-right table{
+	margin-bottom: -35px;
+}
+.swiper-containee{
+	max-width:640px;
+	}
+.swiper-wrapper{
+	padding-left:0px;
+}	
+
+#nav li{
+	text-align: center;
+    font-size: 15px;
+	}
+.active-nav{
+	color:#fff;
+	background:#ddd !important;
+}
+.active-nav a{
+	color:#fff;
+	background:#ddd !important;
+}
+#pages .swiper-slide{
+	height:6rem;
+	
+	}
+.swiper-slide > a{
+	cursor:pointer;
+	color: black;
+	background:#fff !important;
+} 
+.swiper-slide > a:hover{
+	color:#39a5ff;
+}
+.active-nav{
+	border-bottom: 3px solid #39a5ff;
+	padding-bottom:10px;
+	background:#fff !important;
+}
+li.swiper-slide.swiper-slide-visible.swiper-slide-next.active-nav{
+	background:#fff !important;
+}
+#pages{
+	border:1px solid #d2c2c2;
+	}
+.swiper-slide{
+	height:auto!important;
+}
+.swiper-slide > p{
+	padding: 20px 0px 0px 20px;
+    color: black;
+    font-weight: 800;
+}
+.swiper-slide > ul{
+	padding:0px 20px 10px 20px;
+}
+.swiper-slide > ul > li{
+	margin-bottom:10px;
+}
+.swiper-slide > ul > li > p:first-child{
+	margin-bottom: 0px;
+}
+.swiper-slide > ul > li:first-child > p:first-child{
+	border-top:1px solid #d2c2c2;
+	padding-top:10px;
+}
+.phone-server{
+	color: #39a5ff!important;
+}	
+.swiper-slide > ul > li > h5{
+	color: #39a5ff!important;
+}
+.swiper-slide > ul > li > h5:first-child{
+	border-top:1px solid #d2c2c2;
+	padding-top:10px;
+}
+/*右侧内容end*/
+/*产品与服务end*/
+.shadow-div{
+	box-shadow: 0 10px 8px rgba(0, 0, 0, .2);
+	padding: 10px;
+	margin-top: 30px;
+}
+#banner1 > div > div >p{
+	padding: 0px 0px 0px 0px;
+    color: black;
+    font-weight: 800;
+	margin-bottom:10px;
+}

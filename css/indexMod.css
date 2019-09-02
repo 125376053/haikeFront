@@ -1,0 +1,74 @@
+@media (min-width: 991px) and (max-width: 1202px) {
+  .navbar-static-top .navbar-nav > li > a {
+    padding: 0 8px;
+    font-size: 15px;
+  }
+}
+/*�����������˵�����λ��*/
+/* .text-location-gyhk{
+	padding-left: 220px!important;
+}
+.text-location-cybj{
+	padding-left: 340px!important;
+}
+.text-location-gjhgl{
+	padding-left: 450px!important;
+    padding-right: 0px!important;
+}
+.text-location-hksj{
+    padding-left: 700px!important;
+}
+.text-location-rlzl{
+    margin-right: auto!important;
+    padding-left: 750px!important;
+    padding-right: 0!important;
+}
+ */
+/*.videoed {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 44%;
+	top: 41%;
+	z-index: 99;
+	border-radius: 100%;
+	cursor: pointer;
+}*/
+.videoed {
+ position: absolute;
+ width: 50px;
+ height: 50px; 
+ left: 50%;
+ top: 50%;
+ margin-top: -25px;
+ margin-left: -25px;
+ border-radius: 100%;
+ cursor: pointer;
+}
+/* 导航 */
+.gyhk-nav{
+	text-align: left;
+    padding-left:calc(10%) !important;
+}
+.gyhk-nav li{
+	width: calc(12% - 30px)!important;
+}
+.cybj-nav{
+	text-align: left;
+    padding-left: calc(15%) !important;
+}
+.cybj-nav li{
+	width: 150px!important;
+} 
+.gjhgl-nav{
+	text-align: center;
+    padding-left:calc(15%) !important;
+}
+.hksj-nav{
+	text-align: right;
+    padding-left:calc(50%) !important;
+}
+.rczl-nav{
+    text-align: center;
+    padding-left:calc(35%) !important;
+}
