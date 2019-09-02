@@ -537,8 +537,9 @@
                 $.ajax({
                     url: api+`/campusgohaike/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
                     }
                 })

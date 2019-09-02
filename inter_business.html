@@ -364,12 +364,13 @@
             <ul class="row manage clearfix">
                 <li v-for="(item,index) in list">
                     <p v-if="index==0" class="time-year animate-box fadeInUp animated-fast">{{item.title}}</p>
-                    <p class="date-time animate-box fadeInUp animated-fast">{{item.time}}</p>
+                    <p class="date-time animate-box fadeInUp animated-fast">
+                        {{new Date(item.time).toLocaleDateString()}}
+                    </p>
                     <div class="icon-line animate-box fadeInUp animated-fast"></div>
                     <div class="manage-img animate-box fadeInUp animated-fast">
-                        <!--<p>{{item.context1}}</p>
-                        <img style="min-height: 300px;" :src="item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>-->
-                        <div style="min-height: 300px;" v-html="item.content"></div>
+                        <p>{{item.content}}</p>
+                        <img style="min-height: 300px;" :src="item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>
                     </div>
                 </li>
 <!--                <li>
@@ -626,14 +627,13 @@
                         <div class="mobile-manage-date">
                             <span></span>
                             <span>
-                              <p class="time-year">{{item.title}}</p>
-                              <p class="date-time">{{item.time}}</p>
+                              <p v-if="index==0" class="time-year">{{item.title}}</p>
+                              <p class="date-time">{{new Date(item.time).toLocaleDateString()}}</p>
                             </span>
                         </div>
                         <div class="mobile-manage-img">
-                            <!--<p>{{item.context1}}</p>
-                            <img :src="item.imgPath" class="img-responsive" alt=""/>-->
-                            <div v-html="item.content"></div>
+                            <p>{{item.content}}</p>
+                            <img :src="item.imgPath" class="img-responsive" alt=""/>
                         </div>
                     </div>
                 </li>

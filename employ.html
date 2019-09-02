@@ -399,9 +399,9 @@
                                 <h2 class="employ-title">校园招聘</h2>
                                 <h3 class="employ-type">{{item.title}}</h3>
                                 <p class="employ-inf">
-                                    {{item.context1}} <br/>
-                                    {{item.context2}} <br/>
-                                    {{item.context3}} <br/>
+                                    {{item.address}} <br/>
+                                    {{item.content}} <br/>
+                                    {{item.yearSalary}} <br/>
                                 </p> <i class="hk">&#xe602;</i>
                             </a>
                         </li>
@@ -583,10 +583,10 @@
                                 <div class="right-inf">
                                     <h3 class="trip-title">{{item.title}}</h3>
                                     <p class="trip-inf">
-                                        {{item.context1}}<br/>
-                                        {{item.context2}}<br/>
-                                        {{item.context3}}<br/>
-                                        {{item.context4}}
+                                        校区:{{item.campus}}<br/>
+                                        日期:{{new Date(item.preachDate).toLocaleString()}}<br/>
+                                        时间:{{item.preachTime}}<br/>
+                                        地点:{{item.address}}
                                     </p>
                                 </div>
                             </a>
@@ -695,18 +695,22 @@
                 <li class="tab-box">
                     <ul class="row no-space img-lists-1 defaule-shadow mob-employ-brand">
                         <li class="col-xs-12 col-sm-12 col-md-12" v-for="(item,index) in list">
-                            <a class="arrow-block1 img-animateA row" href="hire1.html">
+                            <a class="arrow-block1 img-animateA row" :href="'new21.html?id='+item.id">
                                 <div class="employ-date text-center col-md-2 hidden-xs hidden-sm">
-                                    <div class="employ-day">{{item.title}}</div>
-                                    <div class="employ-month">{{item.time}}</div>
+                                    <div class="employ-day">
+                                        {{new Date(item.time).toLocaleDateString().split('/')[2]}}
+                                    </div>
+                                    <div class="employ-month">
+                                        {{new Date(item.time).toLocaleDateString().substring(0,6)}}
+                                    </div>
                                 </div>
                                 <div class="employ-img col-xs-12 col-md-3 ">
                                     <img :src="item.imgPath" width="100%"/>
                                 </div>
                                 <div class="employ-news col-xs-12 col-md-7 ">
-                                    <h2 class="news-name">{{item.context1}}</h2>
+                                    <h2 class="news-name">{{item.title}}</h2>
                                     <p class="news-inf hidden-xs hidden-sm">
-                                        {{item.context2}}
+                                        {{item.introduction}}
                                     </p>
                                 </div>
                             </a>
@@ -864,18 +868,18 @@
         el: '.vueSwiper',
         data: {
             page: 1,
-            type: 1, // 1社会招聘 2 学校招聘
+            type: 2, // 1社会招聘 2 学校招聘
             list: '',
-            curIndex:-1, //点击显示图片
+            curIndex: -1, //点击显示图片
             navIndex: 1, // 1招聘岗位 2宣讲会进程 3录用公示 4雇主品牌
 
-            rows:10,
-            live:0, //未冻结 1冻结
-            url:'',
-            selectOtherShow:2,  //1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0-代表新闻中心调用
+            rows: 10,
+            live: 0, //未冻结 1冻结
+            url: '',
+            selectOtherShow: 2,  //1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0-代表新闻中心调用
         },
         mounted(){
-            this.url = api+`/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
+            this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
             this.getList(this.url)
             $('#tabEmploy').tabNav();
         },
@@ -885,25 +889,26 @@
                 $.ajax({
                     url: this.url,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
                     }
                 })
             },
             getIndex(navIndex){
                 this.navIndex = navIndex
-                if(navIndex==1){
-                    this.url = api+`/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
+                if (navIndex == 1) {
+                    this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
                 }
-                if(navIndex==2){
-                    this.url = api+`/campuSeminar/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
+                if (navIndex == 2) {
+                    this.url = api + `/campuSeminar/frontEndList/${this.page}/${this.rows}/${this.live}`
                 }
-                if(navIndex==3){
-                    this.url = api+`/campusEmployerBrand/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
+                if (navIndex == 3) {
+                    this.url = api + `/campusEmployerBrand/frontEndList/${this.page}/${this.rows}/${this.live}`
                 }
-                if(navIndex==4){
-                    this.url = api+`/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}/`
+                if (navIndex == 4) {
+                    this.url = api + `/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}/`
                 }
 
                 this.getList(this.url)

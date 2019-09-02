@@ -346,10 +346,10 @@
 </div>
 <!--导航-end-->
 
-<div id="page">
+<div id="page" class="vueSwiper">
     <!-- 社会招聘banner -->
     <div class="employ-banner text-center">
-        <img src="images/employ02.png" alt="图1" width="100%">
+        <img :src="lunbo[0].imgPath" alt="图1" width="100%">
         <div class="banner-txt">
             <h1 class="banner-txt-h1">海科集团社会招聘</h1>
             <h2 class="banner-txt-h2">Haike Group Social Recruitment</h2>
@@ -369,17 +369,17 @@
         </ul>
 
 
-        <ul class="row no-space img-lists-4 defaule-shadow mob-employ-social" id="vueSwiper">
+        <ul class="row no-space img-lists-4 defaule-shadow mob-employ-social" >
             <li class="col-xs-12 col-sm-6 col-md-4" v-for="(item,index) in list">
                 <a class="arrow-block4 hover-white"
                    href="https://www.qlrc.com/person/customize/hkhg/recruit.html" target="_blank">
                     <h2 class="employ-title">社会招聘</h2>
                     <h3 class="employ-type">{{item.title}}</h3>
                     <p class="employ-inf">
-                        {{item.context1}} <br/>
-                        {{item.context2}} <br/>
-                        {{item.context3}} <br/>
-                        {{item.context4}}<!--可能没有-->
+                        学历要求:{{item.education}} <br/>
+                        工作经验:{{item.workExperience}} <br/>
+                        招聘人数:{{item.peopleNum}} <br/>
+                        职位月薪:{{item.mouthSalary}}<!--可能没有-->
                     </p> <i class="hk">&#xe602;</i>
                 </a>
             </li>
@@ -440,7 +440,7 @@
 
         </ul>
 
-        <div class="text-center animate-box">
+        <!--<div class="text-center animate-box">
             <ul class="pagination hidden-xs hidden-sm">
                 <li class="animate-box"><a href="javascript:void(0);">&lt;</a></li>
                 <li class="active fs animate-box"><a
@@ -460,7 +460,7 @@
                 <li><span>页</span></li>
                 <li class="fs"><a href="javascript:void(0);">GO</a></li>
             </ul>
-        </div>
+        </div>-->
 
         <!--联系方式start-->
         <div class="contact-mt">
@@ -543,18 +543,20 @@
 </script>
 <script>
     new Vue({
-        el: '#vueSwiper',
+        el: '.vueSwiper',
         data: {
-            page:1,
-            type: 6, //社会招聘
-            list: '',
-
             curIndex: 0,
             lunbo: [], //轮播图
             pageBanner:1, //页码
             rowBanner:10, //每页条数
             live:0, //未冻结 1冻结
             selectAddr:3, //banner图  1--首页  2--人才招聘  3--社会招聘 4--海科学院
+
+            list: '',
+            page:1,
+            rows:10,
+            live:0,
+            type:1, // 1 社会招聘 2 校园招聘
         },
         mounted(){
             this.getList()
@@ -566,8 +568,9 @@
                 $.ajax({
                     url:api+`/bannerShow/frontEndList/${this.pageBanner}/${this.rowBanner}/${this.live}/${this.selectAddr}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.lunbo = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.lunbo = res.data.rows
                         console.log(this.lunbo);
                     },
                     error(err){
@@ -578,22 +581,18 @@
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/newstype/6',
+                    url: api+`/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
                         this.$nextTick(() => {
 
                         })
                     }
                 })
-            },
-            // 分页方法
-            /*getPage(page){
-                this.page =page
-                this.getList()
-            }*/
+            }
         }
     })
 </script>

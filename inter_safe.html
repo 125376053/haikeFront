@@ -365,7 +365,8 @@
         <div class="row mobile-inter_safe visible-xs visible-sm">
             <div class="container mid-box mob-inter-line">
 
-                <div class="inter-content animate-box">
+                <div v-html="list.content"></div>
+                <!--<div class="inter-content animate-box">
                     <span class="inter-line"></span>
                     <h4>理念与方针</h4>
                     <p>核心安全理念<br/>生命无价、责任至上</p>
@@ -404,7 +405,7 @@
                                 浙江格林生物科技股份有限公司、山东柏森化工技术检测有限责任公司、江苏镇江润晶高纯化工科技股份有限公司、安徽新衡新材料科技有限公司、山东海科港务公司、山东欧铂新材料有限公司等。</p>
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
             </div>
         </div>
@@ -448,7 +449,7 @@
                     </li>
                 </ul>
             </div>-->
-            <div>
+            <div v-html="list.content">
 
             </div>
         </div>
@@ -536,7 +537,7 @@
                     success: (res) => {
                         var res = JSON.parse(res)
                         console.log(res);
-                        this.list = res.data.rows
+                        this.list = res.data.rows[0]
                         console.log(this.list);
                     }
                 })

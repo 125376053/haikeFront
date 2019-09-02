@@ -864,9 +864,10 @@
                 $.ajax({
                     url: api+`/overseasTalent/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.zuji = res.resultObject
-                        console.log(this.zuji);
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.gangwei = res.data.rows
+                        console.log(this.gangwei);
                     }
                 })
             }

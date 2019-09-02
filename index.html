@@ -376,24 +376,9 @@
         <div class="carousel-inner">
             <div class="item" :class="{active:curIndex==index}" v-for="(item,index) in lunbo">
                 <a :href="lunboPages[index]">
-                    <img :src="item.imgPath" alt="" style="width: 100%">
+                    <img :src="item.imgPath" alt="" style="width: 100%; min-height: 500px;">
                 </a>
             </div>
-            <!--<div class="item">
-                <a href="industry_chemical.html">
-                    <img src="images/banner2.png" alt="图2" style="width: 100%">
-                </a>
-            </div>
-            <div class="item">
-                <a href="college.html">
-                    <img src="images/banner3.png" alt="图3" style="width: 100%">
-                </a>
-            </div>
-            <div class="item">
-                <a href="institute.html">
-                    <img src="images/banner4.png" alt="图3" style="width: 100%">
-                </a>
-            </div>-->
         </div>
         <!-- 轮播（Carousel）导航 -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -478,7 +463,7 @@
             <div class="img-cover">
                 <img src="images/welcom.png"/>
             </div>
-<!--视频上方区域的信息没有做  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  ----------------------------------------------->
+<!--视频信息-->
             <div class="container animate-box fadeInUp animated-fast">
                 <!--<div class="top-main">
                     <h2 class="main-title">

@@ -374,12 +374,15 @@
                     </div>
                     <div class="col-xs-7 col-md-9">
                         <h2>{{item.title}}</h2>
-                        <p class="p-bm-m"><strong>·</strong> {{item.context1}}</p>
+                        <div>
+                            {{item.content}}
+                        </div>
+                        <!--<p class="p-bm-m"><strong>·</strong> {{item.context1}}</p>
                         <p class="p-bm-m"><strong>·</strong> {{item.context2}}</p>
                         <p>{{item.context3}}</p>
                         <p class="hidden-xs">
                             {{item.context4}}
-                        </p>
+                        </p>-->
                         <!--<h2>海科，我想与你一起成长 —— 新探公司投资业务部戚甫雨</h2>
                         <p class="p-bm-m"><strong>·</strong> 特里尔大学（德国）硕士</p>
                         <p class="p-bm-m"><strong>·</strong> 2018届管培生 目前就职于 特化事业部市场运营部</p>
@@ -542,9 +545,9 @@
                 $.ajax({
                     url: api+`/growthProcess/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
-                        console.log(this.list);
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                     }
                 })
             }
