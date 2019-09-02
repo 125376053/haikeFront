@@ -535,7 +535,7 @@
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+`/campusgohaike/frontEndList/${this.page}/${this.rows}/${this.live}`,
+                    url: api+`/campusGoHaiKe/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
                         var res = JSON.parse(res)
                         console.log(res);
