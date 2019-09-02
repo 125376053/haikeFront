@@ -535,9 +535,9 @@
                 $.ajax({
                     url: api+`/honorAward/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
-                        console.log(this.list);
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
 
                         this.$nextTick(() => {
                             $("#posterTvGrid .inner").CloudCarousel({
@@ -574,6 +574,9 @@
         data: {
             type: 1, //奖项荣誉
             list: '',
+            page:1,
+            rows:10,
+            live:0
         },
         mounted(){
             this.getList()
@@ -582,15 +585,13 @@
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/newstype/1',
+                    url: api+`/honorAward/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
+                        //this.total = res.data.total
                         console.log(this.list);
-
-                        this.$nextTick(() => {
-
-                        })
                     }
                 })
             }

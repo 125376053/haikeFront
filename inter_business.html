@@ -367,8 +367,9 @@
                     <p class="date-time animate-box fadeInUp animated-fast">{{item.time}}</p>
                     <div class="icon-line animate-box fadeInUp animated-fast"></div>
                     <div class="manage-img animate-box fadeInUp animated-fast">
-                        <p>{{item.context1}}</p>
-                        <img style="min-height: 300px;" :src="item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>
+                        <!--<p>{{item.context1}}</p>
+                        <img style="min-height: 300px;" :src="item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>-->
+                        <div style="min-height: 300px;" v-html="item.content"></div>
                     </div>
                 </li>
 <!--                <li>
@@ -630,8 +631,9 @@
                             </span>
                         </div>
                         <div class="mobile-manage-img">
-                            <p>{{item.context1}}</p>
-                            <img :src="item.imgPath" class="img-responsive" alt=""/>
+                            <!--<p>{{item.context1}}</p>
+                            <img :src="item.imgPath" class="img-responsive" alt=""/>-->
+                            <div v-html="item.content"></div>
                         </div>
                     </div>
                 </li>
@@ -1220,8 +1222,9 @@
                 $.ajax({
                     url: api+`/operatingSystem/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
                         this.$nextTick(()=>{
 

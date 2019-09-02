@@ -446,7 +446,7 @@
                         <div class="swiper-slide">
                             <div id="banner" class="swiper-container banner">
                                 <div class="row swiper-wrapper swiper-wrapper-img">
-                                    <div class="swiper-slide col-sm-8" v-for="(item,index) in list">
+                                    <div class="swiper-slide col-sm-8" v-for="(item,index) in result">
                                         <a href="#"><img :src="item.imgPath"></a>
                                     </div>
                                     <!--<div class="swiper-slide col-sm-8">
@@ -589,7 +589,7 @@
                         <div class="swiper-slide">
                             <div id="banner1" class="swiper-container banner1">
                                 <div class="row swiper-wrapper swiper-wrapper-img">
-                                    <div class="swiper-slide col-sm-8" v-for="(item,index) in list">
+                                    <div class="swiper-slide col-sm-8" v-for="(item,index) in result">
                                         <a href="#"><img :src="item.imgPath"></a>
                                         <div class="build-titles">
                                         </div>
@@ -747,8 +747,8 @@
             page:1,
             rows:10,
             live:0,
-            result:[],
-
+            result:[], //成果
+            list:[], //列表
             live1:0,
             selectTitle:'1',//1--智能应用，2--自主研发，3--聚焦发展，4--遇见未来
         },
@@ -769,8 +769,9 @@
                 $.ajax({
                     url: api+`/constructionResult/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.result = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.result = res.data.rows
                         console.log(this.result);
 
                         this.$nextTick(() => {
@@ -808,8 +809,9 @@
                 $.ajax({
                     url: api+`/intelligentConstruction/frontEndList/${this.live1}/${this.selectTitle}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
 
                         this.$nextTick(() => {

@@ -368,79 +368,22 @@
                                     style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
 
                                     <li class="features-item swiper-slide animate-box fadeInUp animated-fast" v-for="(item,index) in list">
-                                        <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.time}}</h3>
-                                        <!-- <a class="features-info"> -->
-                                        <!-- <p class="features-info-i"></p> -->
-                                        <!-- <p class="features-info-s"> 支持通过VPC与弹性云服务器进行混合组网 </p> -->
-                                        <!-- </a> -->
-                                        <div class="zlzz-div">
-                                            <img src="images/organize101.png" width="100%"/>
-                                            <p class="zlzz-p">{{item.context1}}</p>
+                                        <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
+                                        <div class="zlzz-div" style="min-height: 100px;">
+                                            <img :src="item.imgPath" width="100%"/>
+                                            <p class="zlzz-p">{{item.content}}</p>
                                         </div>
                                     </li>
 
-                                    <!--<li class="features-item swiper-slide animate-box swiper-slide-prev">
-                                        <h3 class="animate-box about-time-h">2000年</h3>
-                                        &lt;!&ndash; <a class="features-info"> &ndash;&gt;
-                                        &lt;!&ndash; <p class="features-info-i"></p> &ndash;&gt;
-                                        &lt;!&ndash; <p class="features-info-s"> 支持云硬盘在线挂载、卸载，弹性扩容 </p> &ndash;&gt;
-
-                                        &lt;!&ndash; </a> &ndash;&gt;
-                                        <div class="zlzz-div">
-                                            <img src="images/organize102.png" width="100%"/>
-                                            <p class="zlzz-p">改制为海科化学年。</p>
-                                        </div>
-                                    </li>
-
-                                    <li class="features-item swiper-slide animate-box swiper-slide-active">
-                                        <h3 class="animate-box about-time-h">2001年</h3>
-                                        &lt;!&ndash; <a class="features-info">
-                                            <p class="features-info-i"></p>
-                                            <p class="features-info-s"> 支持裸金属服务器自动化发放 </p>
-
-                                        </a> &ndash;&gt;
-                                        <div class="zlzz-div">
-                                            <img src="images/organize103.png" width="100%"/>
-                                            <p class="zlzz-p">控股天东制药，进军医药行业。</p>
-                                        </div>
-                                    </li>
-
-                                    <li class="features-item swiper-slide animate-box swiper-slide-next">
-                                        <h3 class="animate-box about-time-h">2002年</h3>
-                                        &lt;!&ndash; <a class="features-info">
-                                            <p class="features-info-i"></p>
-                                            <p class="features-info-s"> 支持私有镜像，支撑企业业务部署 </p>
-
-                                        </a> &ndash;&gt;
-                                        <div class="zlzz-div">
-                                            <img src="images/organize104.png" width="100%"/>
-                                            <p class="zlzz-p">成立海科新源，发展特种化学品。</p>
-                                        </div>
-                                    </li>
-
-                                    <li class="features-item swiper-slide animate-box">
-                                        <h3 class="animate-box about-time-h">2002年</h3>
-                                        &lt;!&ndash; <a class="features-info">
-                                            <p class="features-info-i"></p>
-                                            <p class="features-info-s">支持VMware和XenServer等第三方虚拟化</p>
-                                        </a> &ndash;&gt;
-                                        <div class="zlzz-div">
-                                            <img src="images/organize104.png" width="100%"/>
-                                            <p class="zlzz-p">成立海科新源，发展特种化学品。</p>
-                                        </div>
-                                    </li>
-
-                                    <li class="features-item swiper-slide animate-box dark">
-                                        <h3 class="animate-box about-time-h">2002年</h3>
-                                        &lt;!&ndash; <a class="features-info">
-                                            <p class="features-info-i"></p>
-                                            <p class="features-info-s"> 本地硬盘自定义RAID等功能 </p>
-                                        </a> &ndash;&gt;
-                                        <div class="zlzz-div">
-                                            <img src="images/organize104.png" width="100%"/>
-                                            <p class="zlzz-p">成立海科新源，发展特种化学品。</p>
-                                        </div>
-                                    </li>-->
+                                    <!--
+                                        <li class="features-item swiper-slide animate-box dark">
+                                            <h3 class="animate-box about-time-h">2002年</h3>
+                                            <div class="zlzz-div">
+                                                <img src="images/organize104.png" width="100%"/>
+                                                <p class="zlzz-p">成立海科新源，发展特种化学品。</p>
+                                            </div>
+                                        </li>
+                                    -->
 
                                 </ul>
                             </div>
@@ -502,14 +445,11 @@
                                 <ul class="features-slide swiper-wrapper organize-head"
                                     style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
                                     <li class="features-item swiper-slide animate-box fadeInUp animated-fast" v-for="(item,index) in list">
-                                        <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.time}}</h3>
-                                        <!-- <a class="features-info"> -->
-                                        <!-- <p class="features-info-i"></p> -->
-                                        <!-- <p class="features-info-s"> 支持通过VPC与弹性云服务器进行混合组网 </p> -->
-                                        <!-- </a> -->
-                                        <div class="zlzz-div">
-                                            <img src="images/organize101.png" width="100%"/>
-                                            <p class="zlzz-p">{{item.context1}}</p>
+                                        <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
+
+                                        <div class="zlzz-div" style="min-height:50px;">
+                                            <img :src="item.imgPath" width="100%"/>
+                                            <p class="zlzz-p">{{item.content}}</p>
                                         </div>
                                     </li>
 
@@ -712,7 +652,8 @@
             list: '',
             page:1,
             rows:10,
-            live:0
+            live:0,
+            total:0
         },
         mounted(){
             this.getList()
@@ -723,8 +664,10 @@
                 $.ajax({
                     url: api+`/haikeMileage/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
+                        this.total = res.data.total
                         console.log(this.list);
 
                         this.$nextTick(()=>{

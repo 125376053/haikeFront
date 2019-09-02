@@ -358,25 +358,13 @@
     </div>
 
     <!--fadeInUp animated-fast-->
-    <div class="container mid-box animate-box fadeInUp animated-fast" v-for="(item,key,index) in list">
+    <div class="container mid-box animate-box">
         <!--<ul class="breadcrumb">
             <li><a href="index.html">首页</a></li>
             <li><a href="javascript:void(0);">关于海科</a></li>
             <li class="active">集团介绍</li>
         </ul>-->
 
-        <p class="introduce-txt mt-space animate-box fadeInUp animated-fast">
-            {{item.context1}}
-        </p>
-        <h2 class="introduce-title animate-box fadeInUp animated-fast">
-            {{item.title}}
-        </h2>
-        <p class="introduce-txt animate-box fadeInUp animated-fast">
-            {{item.context2}}
-        </p>
-        <p class="introduce-txt animate-box fadeInUp animated-fast">
-            {{item.context3}}
-        </p>
 
         <!--<p class="introduce-txt mt-space animate-box">
             海科集团（英文名称Haike
@@ -389,6 +377,11 @@
         <p class="introduce-txt animate-box">
             已跻身“中国企业500强”、“中国制造业500强”、“中国石油化工企业100强”之列，是“国家高新技术企业”、国家工信部“智能制造试点示范”、“山东省企业上云标杆企业”、“2018中国锂电池辅助材料十大品牌”，并入选世界经济论坛（达沃斯）“全球成长型公司”。
         </p>-->
+
+        <p class="introduce-txt mt-space animate-box" v-html="list.content">
+
+        </p>
+
 
         <div class="text-center animate-box">
             <img src="images/introduce02.gif" width="100%"/>
@@ -477,8 +470,10 @@
                 $.ajax({
                     url: api+`/groupIntroduction/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows[0] //先取第一条
+                        //this.total = res.data.total
                         console.log(this.list);
                     }
                 })

@@ -363,12 +363,11 @@
 
                 <li class="col-xs-12 col-md-6 animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                     <div class="news-img">
-                        <a href="javascript:void(0);">
+                        <a :href="'new21.html?id='+item.id">
                             <img :src="item.imgPath" width="100%"/>
-                            <!--<img src="images/social01.png" width="100%"/>-->
                         </a>
                     </div>
-                    <a class="news-title" href="javascript:void(0);" style="font-size: 20px;">
+                    <a class="news-title" :href="'new21.html?id='+item.id" style="font-size: 20px;">
                         {{item.title}}
                     </a>
                 </li>
@@ -381,30 +380,6 @@
                     </div>
                     <a class="news-title" href="javascript:void(0);" style="font-size: 20px;">
                         海科港务云南助学
-                    </a>
-                </li>
-                <li class="col-xs-12 col-md-6 animate-box">
-                    <div class="news-img">
-                        <img src="images/social02.png" width="100%"/>
-                    </div>
-                    <a class="news-title" href="javascript:void(0);" style="font-size: 20px;">
-                        海科向东营市贫困大学生捐助100万元
-                    </a>
-                </li>
-                <li class="col-xs-12 col-md-6 animate-box">
-                    <div class="news-img">
-                        <img src="images/social03.png" width="100%"/>
-                    </div>
-                    <a class="news-title" href="javascript:void(0);" style="font-size: 20px;">
-                        海科向东营区教育基金会进行捐赠
-                    </a>
-                </li>
-                <li class="col-xs-12 col-md-6 animate-box">
-                    <div class="news-img">
-                        <img src="images/social04.png" width="100%"/>
-                    </div>
-                    <a class="news-title" href="javascript:void(0);" style="font-size: 20px;">
-                        志愿者队伍关爱老人
                     </a>
                 </li>-->
             </ul>
@@ -438,6 +413,9 @@
               </ul>
 
             </div> -->
+
+            <!--分页-->
+            <div class="fenye pagination" id="page1"></div>
         </div>
     </div>
 
@@ -504,6 +482,8 @@
 
 </html>
 
+<link rel="stylesheet" href="js/pager.css">
+<script src="js/pager.js"></script>
 <script>
     new Vue({
         el: '#vueSwiper',
@@ -514,9 +494,11 @@
             rows:10,
             live:0,
             selectOtherShow:3,//1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0--代表新闻中心
+            total:0, //总页数
         },
         mounted(){
             this.getList()
+            this.getPage()
         },
         methods: {
             getList(){
@@ -524,11 +506,25 @@
                 $.ajax({
                     url: api+`/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
+                        this.total = res.data.total
                         console.log(this.list);
                     }
                 })
+            },
+            getPage(){
+                Page({
+                    num:this.total,	//页码数
+                    startnum:this.page,				//指定页码
+                    elem:$('.fenye'),		//指定的元素
+                    callback:(n)=>{	//回调函数
+                        console.log(n);
+                        this.page=n
+                        this.getList()
+                    }
+                });
             }
         }
     })

@@ -354,13 +354,18 @@
             <li class="active animate-box">新闻中心</li>
         </ul>
 
-        <h3>日本ALPSTEC株式会社一行至质检公司进行技术交流</h3>
+        <!--<h3>日本ALPSTEC株式会社一行至质检公司进行技术交流</h3>
         <div class="col-md-12 text-center">
             <img src="images/new211.jpg">
 
             <br>
             <p style="text-align: left">&emsp;&emsp;8月7日上午，日本ALPSTEC株式会社社长牛丸昭次、中日友好协会会员赵天刚、中国区技术总监张伟庆、市场总监澹台俊一行在东营质量协会会长孙海玻、秘书长李新安的陪同下，至质检公司进行技术交流，质检公司总经理张瑞华、质量专业经理张利、柏森实验室主任李晓华、海科公司生产计划部部长宋德超、运行三部部长魏玉海全程接待并陪同。
                 <br>&emsp;&emsp;此次技术交流，增加了质检公司对日本企业油品添加剂的了解，有利于中外质量技术交流合作。</p>
+        </div>-->
+
+        <h3>{{list.title}}</h3>
+        <div class="col-md-12 text-center">
+            <div v-html="list.content"></div>
         </div>
 
 
@@ -446,22 +451,21 @@
     new Vue({
         el: '.vueSwiper',
         data: {
-            //type: 42, //新闻详情
             list: '',
+            id:getSearchString('id')||''
         },
         mounted(){
-            var id = getSearchString('id')
-            console.log(id);
-            this.getList(id)
+            this.getList()
         },
         methods: {
-            getList(id){
+            getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/editorl/'+id,
+                    url: api+`/newsCenter/frontEndDetail/${this.id}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data
                         console.log(this.list);
                     }
                 })

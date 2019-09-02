@@ -412,7 +412,7 @@
 
         <!--PC端可见start-->
         <div class="hidden-xs hidden-sm">
-            <div class="inter-content animate-box">
+            <!--<div class="inter-content animate-box">
                 <span class="inter-line"></span>
                 <h4 class="animate-box">理念与方针</h4>
                 <p class="animate-box">核心安全理念<br/>生命无价、责任至上</p>
@@ -447,6 +447,9 @@
                         <p>浙江格林生物科技股份有限公司、山东柏森化工技术检测有限责任公司、江苏镇江润晶高纯化工科技股份有限公司、安徽新衡新材料科技有限公司、山东海科港务公司、山东欧铂新材料有限公司等。</p>
                     </li>
                 </ul>
+            </div>-->
+            <div>
+
             </div>
         </div>
         <!--PC端可见end-->
@@ -527,12 +530,13 @@
         },
         methods: {
             getList(){
-                //  ip:port/editoT/1
+                //  安全管理体系是个新闻详情页
                 $.ajax({
                     url: api+`/safetyManagement/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
                         console.log(this.list);
                     }
                 })
