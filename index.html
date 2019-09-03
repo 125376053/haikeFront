@@ -554,18 +554,18 @@
             <!--PC端可见【手风琴】start-->
             <div class="accordion hidden-xs hidden-sm fadeInUp animated-fast " id="zA7n">
                 <ul class="accordion__ul">
-                    <li class="accordion__li animate-box">
-                        <div class="accordion__img bg-color-1">
-                            <h2><a href="industry_petrified.html">石化能源</a></h2>
+                    <li class="accordion__li animate-box" v-for="(item,index) in imgs">
+                        <div class="accordion__img" :class="'bg-color-'+(index+1)">
+                            <h2><a href="industry_petrified.html">{{item.title}}</a></h2>
                             <p>
-                                海科集团石化板块现有海科化工、瑞林化工、石化销售公司、石化供应公司、海达物流公司、海科港务公司、柏森检测公司、海源公司、普安公司、小海豚能源科技、汇链科技、亿维新材料等十余家子公司。依托近30年炼化经验，海科石化积极促进产品结构转型优化，现已形成覆盖国际贸易、石油炼化、高端油品研发、终端配送、危化品智慧物流和港口服务、独立第三方检测和质量控制、终端连锁品牌加油站、电商运营、安全环保管理、五星级服务等一体化的全产业链条，致力于“构建数字化经营体系，成为智能高效的能源服务商”
+                                {{item.content}}
                             </p>
                             <span class="icon">
-									<i class="hk">&#xe649;</i>
-								</span>
+                                <img width="20" height="20" :src="item.imgPath" alt="">
+                            </span>
                         </div>
                     </li>
-                    <li class="accordion__li animate-box">
+                    <!--<li class="accordion__li animate-box">
                         <div class="accordion__img bg-color-2">
                             <h2><a href="industry_chemical.html">特种化学品</a></h2>
                             <p>
@@ -608,27 +608,27 @@
 									<i class="hk">&#xe621;</i>
 								</span>
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
             <!--PC端可见【手风琴】end-->
 
             <!--移动端【对应PC-手风琴】可见start-->
             <div class="row visible-xs visible-sm">
-                <div class="col-md-4 animate-box fadeInUp animated-fast">
+                <div class="col-md-4 animate-box fadeInUp animated-fast" v-for="(item,index) in imgs">
                     <div class="services">
 							<span class="icon">
-								<i class="hk">&#xe649;</i>
+								<i class="hk"><img width="20" height="20" :src="item.imgPath" alt=""></i>
 							</span>
                         <div class="desc">
-                            <h3><a href="javascript:void(0);">石化能源</a></h3>
+                            <h3><a href="javascript:void(0);">{{item.title}}</a></h3>
                             <p>
-                                海科集团石化板块现有海科化工、瑞林化工、石化销售公司、石化供应公司、海达物流公司、海科港务公司、柏森检测公司、海源公司、普安公司、小海豚能源科技、汇链科技、亿维新材料等十余家子公司。依托近30年炼化经验，海科石化积极促进产品结构转型优化，现已形成覆盖国际贸易、石油炼化、高端油品研发、终端配送、危化品智慧物流和港口服务、独立第三方检测和质量控制、终端连锁品牌加油站、电商运营、安全环保管理、五星级服务等一体化的全产业链条，致力于“构建数字化经营体系，成为智能高效的能源服务商”
+                                {{item.content}}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 animate-box fadeInUp animated-fast">
+                <!--<div class="col-md-4 animate-box fadeInUp animated-fast">
                     <div class="services">
 							<span class="icon">
 								<i class="hk">&#xe625;</i>
@@ -678,7 +678,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <!--移动端【对应PC-手风琴】可见end-->
 
@@ -691,20 +691,17 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-xs-12 col-sm-4 animate-box fadeInUp animated-fast" v-for="(item,index) in imgs">
+                <div class="col-xs-12 col-sm-4  animate-box">
                     <div class="wrap">
-                        <img class="all-img" :src="item.imgPath"/>
+                        <img class="all-img" src="images/fifth01.png" />
                         <div class="img-txt">
-                            <a :href="item.href">
-                                <span>{{item.title}}</span>
-                            </a>
+                            <a href="http://www.chinadmc.com"><span>电池化学品</span></a>
                         </div>
                     </div>
                 </div>
-
-                <!--<div class="col-xs-12 col-sm-4  animate-box">
+                <div class="col-xs-12 col-sm-4  animate-box">
                     <div class="wrap">
-                        <img class="all-img" src="images/fifth02.png"/>
+                        <img class="all-img" src="images/fifth02.png" />
                         <div class="img-txt">
                             <a href="http://obo.haikegroup.com"><span class="size-big">石墨烯及下游应用</span></a>
                         </div>
@@ -712,7 +709,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-4  animate-box">
                     <div class="wrap">
-                        <img class="all-img" src="images/fifth03.png"/>
+                        <img class="all-img" src="images/fifth03.png" />
                         <div class="img-txt">
                             <a href="industry_energy.html"><span>湿法隔膜</span></a>
                         </div>
@@ -721,7 +718,7 @@
 
                 <div class="col-xs-12 col-sm-4  animate-box">
                     <div class="wrap">
-                        <img class="all-img" src="images/fifth04.png">
+                        <img class="all-img" src="images/fifth04.png" / style="height: 376px">
                         <div class="img-txt">
                             <a href="http://www.chinadmc.com"><span>消费化学品</span></a>
                         </div>
@@ -729,7 +726,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-4  animate-box">
                     <div class="wrap">
-                        <img class="all-img" src="images/fifth05.png">
+                        <img class="all-img" src="images/fifth05.png" / style="height: 376px">
                         <div class="img-txt">
                             <a href="http://www.minidolphin.net.cn"><span>小海豚</span></a>
                         </div>
@@ -737,12 +734,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 animate-box">
                     <div class="wrap">
-                        <img class="all-img" src="images/fifth06.png">
+                        <img class="all-img" src="images/fifth06.png" / style="height: 376px">
                         <div class="img-txt">
                             <a href="https://www.51wph.com"><span>危品汇</span></a>
                         </div>
                     </div>
-                </div>-->
+                </div>
+
 
             </div>
         </div>
@@ -1243,13 +1241,13 @@
             liveVideo:0,
             otherShow:1,//1-首页z；2--海科视角-新闻媒体-宣传片z  3--人才招聘-海外人才招进  4--人才招聘校园招聘z employ.html
 
-            // 首页3+2
+            // 产业布局
             imgs: [
-                {imgPath:'./images/banner2.png'},
-                {imgPath:'./images/banner2.png'},
-                {imgPath:'./images/banner2.png'},
-                {imgPath:'./images/banner2.png'},
-                {imgPath:'./images/banner2.png'}
+                {title:'123',content:'456',imgPath:'./images/banner2.png'},
+                {title:'123',content:'456',imgPath:'./images/banner2.png'},
+                {title:'123',content:'456',imgPath:'./images/banner2.png'},
+                {title:'123',content:'456',imgPath:'./images/banner2.png'},
+                {title:'123',content:'456',imgPath:'./images/banner2.png'}
             ],
             pageLogo:1,
             rowsLogo:10,
@@ -1279,6 +1277,11 @@
             this.getImgs()
             this.getGuanli()
             this.getWord()
+
+            this.$nextTick(()=>{
+                // 产业布局
+                $('#zA7n').zA7n();
+            })
         },
         methods: {
             // 首页轮播
@@ -1331,10 +1334,10 @@
                 })
             },
 
-            // 首页获取图片3+2  32
+            // 首页产业布局
             getImgs(){
                 $.ajax({
-                    url: api+`/logo/frontEndList/${this.pageLogo}/${this.rowsLogo}/${this.liveLogo}`,
+                    url: api+`/industrialDistribution/frontEndList/${this.pageLogo}/${this.rowsLogo}/${this.liveLogo}`,
                     success: (res) => {
                         var res = JSON.parse(res)
                         this.imgs = res.data.rows

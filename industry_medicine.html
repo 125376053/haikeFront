@@ -525,10 +525,11 @@
             this.getList()
         },
         methods: {
-            // 招聘岗位
+            // 医药
             getList(){
                 $.ajax({
-                    url: api+`/industrialDistribution/frontEndList/${this.page}/${this.rows}/${this.live}`,
+                    // medicine/frontEndList/{page}/{rows}/{live}
+                    url: api+`/medicine/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
                         var res = JSON.parse(res)
                         console.log(res);
