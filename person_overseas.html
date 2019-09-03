@@ -347,11 +347,12 @@
 </div>
 <!--导航-end-->
 
-<div id="page">
+<div id="page" class="vueSwiper">
 
-    <div class="employ-banner">
+    <div class="employ-banner" >
         <!--banner-->
-        <img class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>
+        <!--<img class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>-->
+        <img class="hidden-xs hidden-sm" src="images/Overseas.png" width="100%"/>
         <!--视频-->
         <div class="same-player employ-player mob-employ-player" id="playEmploy">
             <video class="same-video" :src="videoList.videoPath"></video>
@@ -377,44 +378,44 @@
     </div>
 
 
-    <div class="container" id="vueSwiper">
+    <div class="container">
         <!--PC端可见start-->
         <div class="culture hidden-xs hidden-sm">
             <div class="container animate-box mid-box bg-white">
                 <h3 class="person_overseas-title  animate-box">招聘岗位</h3>
 
-
-                <div class="person_overseas-gw person_overseas-gw1 animate-box">
+                <!--animate-box-->
+                <div class="person_overseas-gw person_overseas-gw1" v-for="(item,index) in gangwei">
                     <p class="person-title">留学招聘</p>
-                    <p class="person-con">海科集团管理培训生Management Trainee</p>
+                    <p class="person-con">{{item.title}} {{item.titleEN}}</p>
                     <ul class="row person_overseas-infor">
                         <li class="col-sm-5">
                             <p>地点</p>
-                            <p>东营（山东省）/ 上海</p>
+                            <p>{{item.address}}</p>
                         </li>
                         <li class="col-sm-7">
                             <p>Location</p>
-                            <p>Dongying(Shanghai Province)/Shanghai</p>
+                            <p>{{item.addressEN}}</p>
                         </li>
                         <li class="col-sm-5">
                             <p>应聘要求</p>
-                            <p>1、硕士学历<br/>2、应届毕业生或一年以上工作经验</p>
+                            <p>{{item.jobRequirements}}</p>
                         </li>
                         <li class="col-sm-7">
                             <p>Job Requirements</p>
-                            <p>1、Master degree<br/>2、Fresh graduate or with at least 1-year working experience</p>
+                            <p>{{item.jobRequirementsEN}}</p>
                         </li>
                         <li class="col-sm-5">
                             <p>薪资待遇</p>
-                            <p>150000元-180000元/年</p>
+                            <p>{{item.salary}}</p>
                         </li>
                         <li class="col-sm-7">
                             <p>Salary</p>
-                            <p>150000 yuan-180000 yuan/year</p>
+                            <p>{{item.salaryEN}}</p>
                         </li>
                     </ul>
                 </div>
-                <div class="person_overseas-gw person_overseas-gw1 animate-box">
+                <!--<div class="person_overseas-gw person_overseas-gw1 animate-box">
                     <p class="person-title">留学招聘</p>
                     <p class="person-con">海科集团营销精英Marketing and Sales Elite (International)</p>
                     <ul class="row person_overseas-infor">
@@ -444,8 +445,8 @@
                             <p>120000 yuan-140000 yuan/year</p>
                         </li>
                     </ul>
-                </div>
-                <div class="person_overseas-gw person_overseas-gw1 animate-box">
+                </div>-->
+                <!--<div class="person_overseas-gw person_overseas-gw1 animate-box">
                     <p class="person-title">留学招聘</p>
                     <p class="person-con">研发工程师R&D Engineer</p>
                     <ul class="row person_overseas-infor">
@@ -483,7 +484,7 @@
                             <p>Negotiable</p>
                         </li>
                     </ul>
-                </div>
+                </div>-->
 
 
                 <h3 class="person_overseas-title animate-box">招聘流程</h3>
@@ -522,14 +523,15 @@
                     <p>
                         海科集团首席科学家<br/>CHIEF SCIENTIST
                     </p>-->
+
                     <img :src="item.imgPath" width="60%"/>
-                    <div class="person-xj">
-                        <h3>{{item.title}}<span> {{item.context1}}</span></h3><br/>
-                        <span class="person-eg">{{item.context2}}</span>
+                    <div class="person-xj" v-if="index==0">
+                        <h3>波士顿大学<span> 专业宣讲</span></h3><br/>
+                        <span class="person-eg">BOSTON UNIVERSITY</span>
                         <span class="person-tri"></span>
                     </div>
                     <p>
-                        {{item.context3}}<br/>{{item.context4}}
+                        {{item.title}}<br/><!--CHIEF SCIENTIST-->
                     </p>
                 </div>
 
@@ -610,28 +612,32 @@
             <div class="mobile-overseas container animate-box mid-box">
                 <h3 class="mobile-person-title  mob-icon-title">招聘岗位</h3>
                 <div class="overseas-items">
-                    <div class="overseas-item">
+                    <div class="overseas-item" v-for="(item,index) in gangwei">
                         <h4>留学招聘</h4>
-                        <p>海科集团管理培训生Management Trainee</p>
+                        <p>{{item.title}} {{item.titleEN}}</p>
                         <div class="overseas-items-p">
-                            <p>地点<br/>东营（山东省）/ 上海</p>
-                            <p>Location<br/>Dongying(Shanghai Province)/Shanghai</p>
+                            <p>地点<br/>{{item.address}}</p>
+                            <p>Location<br/>{{item.addressEN}}</p>
                         </div>
                         <div class="overseas-items-p">
                             <p>应聘要求</p>
-                            <p>1、硕士学历<br/>2、应届毕业生或一年以上工作经验</p>
+                            <!--<p>1、硕士学历<br/>2、应届毕业生或一年以上工作经验</p>-->
+                            <p>{{item.jobRequirements}}</p>
                             <p>Job Requirements</p>
-                            <p>1.Master degree<br/>2.Fresh graduate or with at least 1-year working experience</p>
+                            <!--<p>1.Master degree<br/>2.Fresh graduate or with at least 1-year working experience</p>-->
+                            <p>{{item.jobRequirementsEN}}</p>
                         </div>
                         <div class="overseas-items-p">
                             <p>薪资待遇</p>
-                            <p>150000元-180000元/年</p>
+                            <p>{{item.salary}}</p>
+                            <!--<p>150000元-180000元/年</p>-->
                             <p>Salary</p>
-                            <p>150000 yuan-180000 yuan/year</p>
+                            <p>{{item.salaryEN}}</p>
+                            <!--<p>150000 yuan-180000 yuan/year</p>-->
                         </div>
                         <i class="hk">&#xe602;</i>
                     </div>
-                    <div class="overseas-item">
+                   <!-- <div class="overseas-item">
                         <h4>留学招聘</h4>
                         <p>海科集团营销精英Marketing and Sales Elite (International)</p>
                         <div class="overseas-items-p">
@@ -652,10 +658,10 @@
                             <p>120000 yuan-140000 yuan/year</p>
                         </div>
                         <i class="hk">&#xe602;</i>
-                    </div>
+                    </div>-->
 
 
-                    <div class="overseas-item">
+                    <!--<div class="overseas-item">
                         <h4>留学招聘</h4>
                         <p>研发工程师R&D Engineer</p>
                         <div class="overseas-items-p">
@@ -680,7 +686,7 @@
                             <p>Negotiable</p>
                         </div>
                         <i class="hk">&#xe602;</i>
-                    </div>
+                    </div>-->
 
 
                     <a class="see-btn" href="javascript:void(0)">展开查看</a>
@@ -834,7 +840,7 @@
 </script>
 <script>
     new Vue({
-        el: '#vueSwiper',
+        el: '.vueSwiper',
         data: {
             type: 8, //我们的足迹
             zuji: '',
@@ -849,24 +855,24 @@
             live1:0,
 
             // banner
-            lunbo:[],
+            /*lunbo:[],
             pageBanner:1, //页码
             rowsBanner:10, //每页条数
             liveBanner:0, //未冻结 1冻结
-            selectAddr:2, //banner图  1--首页  2--人才招聘  3--社会招聘 4--海科学院
+            selectAddr:2, //banner图  1--首页  2--人才招聘  3--社会招聘 4--海科学院*/
 
             // 视频列表
             videoList:[],
             pageVideo:1,
             rowsVideo:10,
             liveVideo:0,
-            otherShow:3,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘-海外人才招进 4--人才招聘-校园招聘
+            otherShow:3,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘海外人才招进 4--人才招聘校园招聘
         },
         mounted(){
             this.getZuji()
             this.getGangwei()
             this.getVideo()
-            this.getLunbo()
+            //this.getLunbo()
         },
         methods: {
             getZuji(){
@@ -906,7 +912,7 @@
                 })
             },
 
-            // 首页轮播
+            /*// 首页轮播
             getLunbo(){
                 $.ajax({
                     url:api+`/bannerShow/frontEndList/${this.pageBanner}/${this.rowsBanner}/${this.liveBanner}/${this.selectAddr}`,
@@ -919,7 +925,7 @@
                         console.log(err);
                     }
                 })
-            },
+            },*/
         }
     })
 </script>

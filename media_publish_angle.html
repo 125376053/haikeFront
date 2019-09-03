@@ -374,7 +374,7 @@
                             </div>
                             <div>
                                 <h3>{{item.title}}</h3>
-                                <p class="public-p">{{item.context1}}</p>
+                                <p class="public-p" v-html="item.content"></p>
                                 <!--<h3>精益制造</h3>
                                 <p class="public-p">《精益·智造》（双月刊），2016年创刊，是以卓越运营、智能化为主题的学术性期刊，由海科集团卓越与智能部承办。
                                     以传播卓越运营知识、推动智能化建设、提高全体员工综合素质为宗旨。包含“登峰足迹”、 “HBS”、“持续改善的六大指标”、
@@ -580,6 +580,10 @@
             list2: '', //宣传片
             curIndex: -1,
 
+            page:1,
+            rows:10,
+            live:0,
+
             // 视频列表
             videoList:[],
             pageVideo:1,
@@ -602,7 +606,7 @@
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api + '/newstype/17',
+                    url: api + `/publication/frontEndList/${this.page}/${this.rows}/${this.live}`,
                     success: (res) => {
                         var res = JSON.parse(res)
                         this.list = res.data.rows
