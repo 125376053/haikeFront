@@ -403,13 +403,15 @@
                 <li class="tab-box">
                     <ul class="row no-space img-lists-3B defaule-shadow">
 
-                        <li class="col-xs-12 col-sm-6 col-md-4" v-for="(item,index) in list2" @mouseenter="curIndex=index" @mouseleave="curIndex=-1">
+                        <li class="col-xs-12 col-sm-6 col-md-4" v-for="(item,index) in videoList"
+                            @mouseenter="curIndex=index" @mouseleave="curIndex=-1">
                             <div class="news-img publish-img icon-video" :id="'mediaVideo0'+index" :videoindex="index"
                                  style="position: relative;">
                                 <a class="media-video same-player" href="javascript:void(0);">
                                     <video class="same-video" :src="item.videoPath"></video>
                                     <a data-toggle="modal" data-target="#videoplaybox">
-                                        <img v-if="curIndex==index" src="images/play.jpg" class="videoeds" @click="showVideo(index)" />
+                                        <img v-if="curIndex==index" src="images/play.jpg" class="videoeds"
+                                             @click="showVideo(index)"/>
                                     </a>
                                 </a>
                             </div>
@@ -575,12 +577,19 @@
         el: '.vueSwiper',
         data: {
             list: '', //出版物
-            list2:'', //宣传片
-            curIndex:-1
+            list2: '', //宣传片
+            curIndex: -1,
+
+            // 视频列表
+            videoList:[],
+            pageVideo:1,
+            rowsVideo:10,
+            liveVideo:0,
+            otherShow:2,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘-海外人才招进 4--人才招聘-校园招聘
         },
         mounted(){
             this.getList()
-            this.getList2()
+            this.getVideo()
             $('#tabMedia').tabNav();
 
             $('#videoplaybox').on('hidden.bs.modal', function () {
@@ -589,26 +598,45 @@
             });
         },
         methods: {
+            // 出版物
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/newstype/17',
+                    url: api + '/newstype/17',
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        this.list = res.data.rows
                         console.log(this.list);
                     }
                 })
             },
-            // 宣传片 18
+            /*// 宣传片
             getList2(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/newstype/18',
+                    url: api + '/newstype/18',
                     success: (res) => {
                         console.log(res.resultObject);
                         this.list2 = res.resultObject
                         console.log(this.list2);
+                    }
+                })
+            },*/
+            // 视频列表 36
+            getVideo(){
+                // '/newsType/'+this.type
+                $.ajax({
+                    url: api+`/haikeVideo/frontEndList/${this.pageVideo}/${this.rowsVideo}/${this.liveVideo}/${this.otherShow}`,
+                    success: (res) => {
+                        var res = JSON.parse(res)
+                        this.videoList = res.data.rows
+                        console.log(this.videoList);
+                        this.$nextTick(() => {
+                            this.videoList.forEach((item, index) => {
+                                // 自动播放
+                                $("#play" + index).autoVideo()
+                            })
+                        })
                     }
                 })
             },

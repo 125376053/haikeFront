@@ -36,6 +36,7 @@
     </script>
 </head>
 <body>
+
 <!--导航-start-->
 <div class="navbar navbar-default navbar-static-top page-nav"
      role="navigation">
@@ -135,7 +136,8 @@
                         <ul class="sub-menu">
                             <li><a href="javascript:void(0);">海科化工</a></li>
                             <li><a href="http://ruilin.haikegroup.com" target="_black">瑞林化工</a></li>
-                            <li><a href="http://haida.haikegroup.com/haid_company.html" target="_black">海达物流</a></li>
+                            <li><a href="http://haida.haikegroup.com/haid_company.html" target="_black">海达物流</a>
+                            </li>
                             <li><a href="http://www.minidolphin.net.cn" target="_black">小海豚</a></li>
                             <li><a href="https://www.51wph.com" target="_black">危品汇</a></li>
                             <li><a href="http://www.yoyoeco.com" target="_black">YOYOECO</a></li>
@@ -187,7 +189,8 @@
                         <ul class="sub-menu">
                             <li><a href="javascript:void(0);">海科化工</a></li>
                             <li><a href="http://ruilin.haikegroup.com" target="_black">瑞林化工</a></li>
-                            <li><a href="http://haida.haikegroup.com/haid_company.html" target="_black">海达物流</a></li>
+                            <li><a href="http://haida.haikegroup.com/haid_company.html" target="_black">海达物流</a>
+                            </li>
                             <li><a href="http://www.minidolphin.net.cn" target="_black">小海豚</a></li>
                             <li><a href="https://www.51wph.com" target="_black">危品汇</a></li>
                             <li><a href="http://www.yoyoeco.com" target="_black">YOYOECO</a></li>
@@ -351,198 +354,214 @@
     </div>
 </div>
 <!--导航-end-->
+
 <div class="xy_banner" style="display:none;">
     <img src="images/hdbanner.jpg"/>
 </div>
-<div>
-    <!--轮播-start-->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- 轮播（Carousel）指标 -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <!-- 轮播（Carousel）项目 -->
-        <!-- 更换海科学院的图片 -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <a href="#"> <img src="images/hdbanner.jpg"
-                                  alt="图1" style="width: 100%">
-                </a>
+
+<div class="vueSwiper">
+    <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx轮播图xxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+    <div>
+
+        <!--轮播-start-->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>-->
+
+                <li v-for="(item,index) in lunbo"
+                    data-target="#myCarousel"
+                    :data-slide-to="index"
+                    :class="{active:curIndex==index}"
+                ></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <!-- 更换海科学院的图片 -->
+            <div class="carousel-inner">
+                <!--<div class="item active">
+                    <a href="#"> <img src="images/hdbanner.jpg" alt="图1" style="width: 100%"></a>
+                </div>
+                <div class="item">
+                    <a href="#"> <img src="images/hdbanner.jpg" alt="图2" style="width: 100%"></a>
+                </div>
+                <div class="item">
+                    <a href="#"> <img src="images/hdbanner.jpg" alt="图3" style="width: 100%"></a>
+                </div>
+                <div class="item">
+                    <a href="#"> <img src="images/hdbanner.jpg" alt="图3" style="width: 100%"></a>
+                </div>-->
+                <div class="item" :class="{active:curIndex==index}" v-for="(item,index) in lunbo">
+                    <a :href="lunboPages[index]">
+                        <img :src="item.imgPath" alt="" style="width: 100%; min-height: 500px;">
+                    </a>
+                </div>
             </div>
-            <div class="item">
-                <a href="#"> <img src="images/hdbanner.jpg"
-                                  alt="图2" style="width: 100%">
-                </a>
-            </div>
-            <div class="item">
-                <a href="#"> <img src="images/hdbanner.jpg" alt="图3"
-                                  style="width: 100%">
-                </a>
-            </div>
-            <div class="item">
-                <a href="#"> <img src="images/hdbanner.jpg"
-                                  alt="图3" style="width: 100%">
-                </a>
-            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
         </div>
-        <!-- 轮播（Carousel）导航 -->
-        <a class="left carousel-control" href="#myCarousel" role="button"
-           data-slide="prev"> <span
-                class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only"></span>
-        </a> <a class="right carousel-control" href="#myCarousel" role="button"
-                data-slide="next"> <span
-            class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only"></span>
-    </a>
+        <!--轮播-end-->
+
     </div>
-    <!--轮播-end-->
-</div>
-<div class="xy_found shadowLight" style="margin-top:0;">
-    <i class="xy_blueline"></i>
-    <h3 class="xy_title">学院成立</h3>
-    <div class="xy_text">
-        为助推集团战略落地，提升组织能力，践行“学习，学习，再学习”的核心价值观，打造良好的企业品牌，经集团研究，决定成立海科学院。核心功能定位为人才培养中心，知识共享中心，变革推动中心和业务发展伙伴。——2019年海科学院成立。
-    </div>
-</div>
-<div class="xy_mission">
-    <i class="xy_blueline"></i>
-    <h3 class="xy_title">海科学院使命</h3>
-    <div class="xy_text">为海科培养具备卓越运营和创新能力的价值创造者</div>
-</div>
-<div id="xy_card_left" class="xy_card xy_left clearfix">
-    <div class="xy_cd_bg">
-        <img src="images/cdonebg.jpg">
-    </div>
-    <div class="xy_cd_main shadowLight">
+
+    <div class="xy_found shadowLight" style="margin-top:0;">
         <i class="xy_blueline"></i>
-        <h3 class="xy_title">海科学院理念</h3>
-        <p class="xy_text">
-            激活人生，驱动未来。<br>Activate life,drive the future.
-        </p>
+        <h3 class="xy_title">学院成立</h3>
+        <div class="xy_text">
+            为助推集团战略落地，提升组织能力，践行“学习，学习，再学习”的核心价值观，打造良好的企业品牌，经集团研究，决定成立海科学院。核心功能定位为人才培养中心，知识共享中心，变革推动中心和业务发展伙伴。——2019年海科学院成立。
+        </div>
     </div>
-</div>
-<div class="xy_card xy_right clearfix">
-    <div class="xy_cd_bg">
-        <img src="images/cdtwobg.jpg">
-    </div>
-    <div class="xy_cd_main shadowLight">
+
+    <div class="xy_mission">
         <i class="xy_blueline"></i>
-        <h3 class="xy_title">海科学院战略价值</h3>
-        <p class="xy_text">
-            推动人才战略&nbsp;打造人才梯队<br>赋能业务精英&nbsp;支持业务发展<br>推动战略落地&nbsp;凝练HBS体系
-        </p>
+        <h3 class="xy_title">海科学院使命</h3>
+        <div class="xy_text">为海科培养具备卓越运营和创新能力的价值创造者</div>
     </div>
-</div>
-<div id="xy_position">
-    <i class="xy_blueline"></i>
-    <h3 class="xy_tit">海科学院功能定位</h3>
-</div>
-<div class="xy_flexBox">
-    <div class="xy_deformBox">
-        <div class="xy_main">
-            <i class="xy_blueline"></i>
-            <div class="xy_name">
-                <span class="xy_none">人才梯队中心</span> <span class="xy_ntwo">构建梯队，人才发展</span>
-            </div>
-            <div class="xy_des">【海科集团高潜培养项目】</div>
+
+    <div id="xy_card_left" class="xy_card xy_left clearfix">
+        <div class="xy_cd_bg">
+            <img src="images/cdonebg.jpg">
         </div>
-        <img src="images/clone.png"/>
-    </div>
-    <div class="xy_deformBox">
-        <div class="xy_main">
+        <div class="xy_cd_main shadowLight">
             <i class="xy_blueline"></i>
-            <div class="xy_name">
-                <span class="xy_none">知识共享中心</span> <span class="xy_ntwo">HBS知识沉淀，管理认证</span>
-            </div>
-            <div class="xy_des">【卓越运营带级人才培养项目】</div>
+            <h3 class="xy_title">海科学院理念</h3>
+            <p class="xy_text">
+                激活人生，驱动未来。<br>Activate life,drive the future.
+            </p>
         </div>
-        <img src="images/cltwo.png"/>
     </div>
-</div>
-<div class="xy_flexBox">
-    <div class="xy_deformBox">
-        <div class="xy_main">
+
+    <div class="xy_card xy_right clearfix">
+        <div class="xy_cd_bg">
+            <img src="images/cdtwobg.jpg">
+        </div>
+        <div class="xy_cd_main shadowLight">
             <i class="xy_blueline"></i>
-            <div class="xy_name">
-                <span class="xy_none">变革推动中心</span> <span class="xy_ntwo">推动变革，凝练思维</span>
-            </div>
-            <div class="xy_des">【董事局主席战略宣言】</div>
+            <h3 class="xy_title">海科学院战略价值</h3>
+            <p class="xy_text">
+                推动人才战略&nbsp;打造人才梯队<br>赋能业务精英&nbsp;支持业务发展<br>推动战略落地&nbsp;凝练HBS体系
+            </p>
         </div>
-        <img src="images/clthree.png"/>
     </div>
-    <div class="xy_deformBox">
-        <div class="xy_main">
-            <i class="xy_blueline"></i>
-            <div class="xy_name">
-                <span class="xy_none">业务发展伙伴</span> <span class="xy_ntwo">紧贴业务，精英计划</span>
-            </div>
-            <div class="xy_des">【海科集团高潜培养项目】</div>
-        </div>
-        <img src="images/clfour.png"/>
+    <div id="xy_position">
+        <i class="xy_blueline"></i>
+        <h3 class="xy_tit">海科学院功能定位</h3>
     </div>
-</div>
-<div id="xy_news">
-    <i class="xy_blueline"></i>
-    <h3 class="xy_tit">学院新闻</h3>
-</div>
-<div id="xy_newsBox" class="vueSwiper">
-    <a href="hkcollege1.html" v-for="(item,index) in list">
-        <div class="xy_newslist shadowLight">
-            <div class="xy_time">
-                <div class="xy_day">{{item.title}}</div>
-                <div class="xy_date">{{item.time}}</div>
-            </div>
-            <div class="xy_imgbox">
-                <img src="images/hkcollege1.jpg"/>
-            </div>
+    <div class="xy_flexBox">
+        <div class="xy_deformBox">
             <div class="xy_main">
-                <div class="xy_name">{{item.context1}}</div>
-                <div class="xy_text">
-                    {{item.context2}}
+                <i class="xy_blueline"></i>
+                <div class="xy_name">
+                    <span class="xy_none">人才梯队中心</span> <span class="xy_ntwo">构建梯队，人才发展</span>
+                </div>
+                <div class="xy_des">【海科集团高潜培养项目】</div>
+            </div>
+            <img src="images/clone.png"/>
+        </div>
+        <div class="xy_deformBox">
+            <div class="xy_main">
+                <i class="xy_blueline"></i>
+                <div class="xy_name">
+                    <span class="xy_none">知识共享中心</span> <span class="xy_ntwo">HBS知识沉淀，管理认证</span>
+                </div>
+                <div class="xy_des">【卓越运营带级人才培养项目】</div>
+            </div>
+            <img src="images/cltwo.png"/>
+        </div>
+    </div>
+    <div class="xy_flexBox">
+        <div class="xy_deformBox">
+            <div class="xy_main">
+                <i class="xy_blueline"></i>
+                <div class="xy_name">
+                    <span class="xy_none">变革推动中心</span> <span class="xy_ntwo">推动变革，凝练思维</span>
+                </div>
+                <div class="xy_des">【董事局主席战略宣言】</div>
+            </div>
+            <img src="images/clthree.png"/>
+        </div>
+        <div class="xy_deformBox">
+            <div class="xy_main">
+                <i class="xy_blueline"></i>
+                <div class="xy_name">
+                    <span class="xy_none">业务发展伙伴</span> <span class="xy_ntwo">紧贴业务，精英计划</span>
+                </div>
+                <div class="xy_des">【海科集团高潜培养项目】</div>
+            </div>
+            <img src="images/clfour.png"/>
+        </div>
+    </div>
+    <div id="xy_news">
+        <i class="xy_blueline"></i>
+        <h3 class="xy_tit">学院新闻</h3>
+    </div>
+
+    <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxx学院新闻xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+    <div id="xy_newsBox">
+        <a :href="'new21.html?id='+item.id" v-for="(item,index) in list">
+            <div class="xy_newslist shadowLight">
+                <div class="xy_time">
+                    <div class="xy_day">{{new Date(item.time).toLocaleDateString().split('/')[2]}}</div>
+                    <div class="xy_date">{{new Date(item.time).toLocaleDateString().substring(0,6)}}</div>
+                </div>
+                <div class="xy_imgbox">
+                    <img :src="item.imgPath"/>
+                </div>
+                <div class="xy_main">
+                    <div class="xy_name">{{item.title}}</div>
+                    <div class="xy_text">
+                        {{item.introduction}}
+                    </div>
                 </div>
             </div>
-        </div>
-    </a>
-    <!--<a href="hkcollege2.html">
-        <div class="xy_newslist shadowLight">
-            <div class="xy_time">
-                <div class="xy_day">29</div>
-                <div class="xy_date">2019/07</div>
-            </div>
-            <div class="xy_imgbox">
-                <img src="images/hkcollege2.jpg"/>
-            </div>
-            <div class="xy_main">
-                <div class="xy_name">2019年海科集团启航计划顺利启动</div>
-                <div class="xy_text">
-                    7月29日、30日两天，集团副总裁缪初晓、石化事业部总经理张向辉、特化事业部常务副总经理张生安分别与今年的管培生和营销精英进行了圆桌会议，就海科集团对管培生的定位、职业发展以及未来期望进行了深度沟通，并结合海科业务，认真耐心地解答了他们心中的困惑。
+        </a>
+        <!--<a href="hkcollege2.html">
+            <div class="xy_newslist shadowLight">
+                <div class="xy_time">
+                    <div class="xy_day">29</div>
+                    <div class="xy_date">2019/07</div>
+                </div>
+                <div class="xy_imgbox">
+                    <img src="images/hkcollege2.jpg"/>
+                </div>
+                <div class="xy_main">
+                    <div class="xy_name">2019年海科集团启航计划顺利启动</div>
+                    <div class="xy_text">
+                        7月29日、30日两天，集团副总裁缪初晓、石化事业部总经理张向辉、特化事业部常务副总经理张生安分别与今年的管培生和营销精英进行了圆桌会议，就海科集团对管培生的定位、职业发展以及未来期望进行了深度沟通，并结合海科业务，认真耐心地解答了他们心中的困惑。
+                    </div>
                 </div>
             </div>
-        </div>
-    </a>
-    <a href="hkcollege3.html">
-        <div class="xy_newslist shadowLight">
-            <div class="xy_time">
-                <div class="xy_day">16</div>
-                <div class="xy_date">2019/07</div>
-            </div>
-            <div class="xy_imgbox">
-                <img src="images/hkcollege3.jpg"/>
-            </div>
-            <div class="xy_main">
-                <div class="xy_name">海科集团首届生产管理精英培训项目启动</div>
-                <div class="xy_text">
-                    7月16日，海科集团首届生产管理精英培训项目正式启动。海科学院采用事业部、分子公司联合定制化的培养方式，总计培养基层员工57人，中基层组班长21人。
+        </a>
+        <a href="hkcollege3.html">
+            <div class="xy_newslist shadowLight">
+                <div class="xy_time">
+                    <div class="xy_day">16</div>
+                    <div class="xy_date">2019/07</div>
+                </div>
+                <div class="xy_imgbox">
+                    <img src="images/hkcollege3.jpg"/>
+                </div>
+                <div class="xy_main">
+                    <div class="xy_name">海科集团首届生产管理精英培训项目启动</div>
+                    <div class="xy_text">
+                        7月16日，海科集团首届生产管理精英培训项目正式启动。海科学院采用事业部、分子公司联合定制化的培养方式，总计培养基层员工57人，中基层组班长21人。
+                    </div>
                 </div>
             </div>
-        </div>
-    </a>-->
-    <!-- <div class="xy_showMore">查看更多新闻消息&ggg;</div> -->
+        </a>-->
+        <!-- <div class="xy_showMore">查看更多新闻消息&ggg;</div> -->
+    </div>
 </div>
+
 <!--底部start-->
 <div id="qbootstrap-footer" role="contentinfo">
     <div class="row copyright">
@@ -599,24 +618,55 @@
     new Vue({
         el: '.vueSwiper',
         data: {
-            type: 19, //学院新闻
-            list: '',
+            curIndex: 0,
+            lunbo: [], //首页轮播图
+            lunboPages: ['about_introduce.html', 'industry_chemical.html', 'college.html', 'institute.html'], //轮播页面跳转
+            pageBanner:1, //页码
+            rowsBanner:10, //每页条数
+            liveBanner:0, //未冻结 1冻结
+            selectAddr:4, //banner图  1--首页  2--人才招聘  3--社会招聘 4--海科学院
+
+            // 学院新闻
+            list:[],
+            page:1,
+            rows:10,
+            live:0,
+            selectOtherShow:1,//1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0--代表新闻中心
+            total:0, //总页数
         },
         mounted(){
+            this.getLunbo()
             this.getList()
         },
         methods: {
+            // 海科学院轮播
+            getLunbo(){
+                $.ajax({
+                    url:api+`/bannerShow/frontEndList/${this.pageBanner}/${this.rowsBanner}/${this.liveBanner}/${this.selectAddr}`,
+                    success: (res) => {
+                        var res = JSON.parse(res)
+                        this.lunbo = res.data.rows
+                        console.log(this.lunbo);
+                    },
+                    error(err){
+                        console.log(err);
+                    }
+                })
+            },
+            // 海科学院新闻
             getList(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+'/newstype/19',
+                    url: api+`/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}`,
                     success: (res) => {
-                        console.log(res.resultObject);
-                        this.list = res.resultObject
+                        var res = JSON.parse(res)
+                        console.log(res);
+                        this.list = res.data.rows
+                        this.total = res.data.total
                         console.log(this.list);
                     }
                 })
-            }
+            },
         }
     })
 </script>

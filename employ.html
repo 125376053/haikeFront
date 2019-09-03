@@ -348,14 +348,16 @@
 
 <div id="page">
     <div class="employ-banner">
-        <img class="hidden-xs hidden-sm" src="images/emplyee_banner.png"
-             width="100%"/>
-        <div class="same-player employ-player mob-employ-player"
-             id="playEmploy">
-            <video class="same-video" src="images/banner.mp4"></video>
-            <a data-toggle="modal" data-target="#videoplaybox"> <img
-                    src="images/play.jpg" class="videoed"/></a>
+        <!--banner-->
+        <!--<img class="hidden-xs hidden-sm" src="images/emplyee_banner.png" width="100%"/>-->
+        <img class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>
+        <!--视频-->
+        <div class="same-player employ-player mob-employ-player" id="playEmploy">
+            <!--<video class="same-video" src="images/banner.mp4"></video>-->
+            <video class="same-video" :src="videoList.videoPath"></video>
+            <a data-toggle="modal" data-target="#videoplaybox"> <img src="images/play.jpg" class="videoed"/></a>
         </div>
+
     </div>
 
     <div class="modal fade" id="videoplaybox" role="dialog"
@@ -877,11 +879,27 @@
             live: 0, //未冻结 1冻结
             url: '',
             selectOtherShow: 2,  //1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0-代表新闻中心调用
+
+            // 视频列表
+            videoList:[],
+            pageVideo:1,
+            rowsVideo:10,
+            liveVideo:0,
+            otherShow:4,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘-海外人才招进 4--人才招聘-校园招聘
+
+            // 首页banner
+            lunbo:[],
+            pageBanner:1, //页码
+            rowsBanner:10, //每页条数
+            liveBanner:0, //未冻结 1冻结
+            selectAddr:2, //banner图  1--首页  2--人才招聘  3--社会招聘 4--海科学院
         },
         mounted(){
             this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
             this.getList(this.url)
             $('#tabEmploy').tabNav();
+            this.getVideo()
+            this.getLunbo()
         },
         methods: {
             // 招聘岗位
@@ -915,7 +933,33 @@
             },
             showImg(index){
                 this.curIndex = index
-            }
+            },
+            // 视频列表 36
+            getVideo(){
+                // '/newsType/'+this.type
+                $.ajax({
+                    url: api+`/haikeVideo/frontEndList/${this.pageVideo}/${this.rowsVideo}/${this.liveVideo}/${this.otherShow}`,
+                    success: (res) => {
+                        var res = JSON.parse(res)
+                        this.videoList = res.data.rows[0]
+                        console.log(this.videoList);
+                    }
+                })
+            },
+            // 首页轮播
+            getLunbo(){
+                $.ajax({
+                    url:api+`/bannerShow/frontEndList/${this.pageBanner}/${this.rowsBanner}/${this.liveBanner}/${this.selectAddr}`,
+                    success: (res) => {
+                        var res = JSON.parse(res)
+                        this.lunbo = res.data.rows[0]
+                        console.log(this.lunbo);
+                    },
+                    error(err){
+                        console.log(err);
+                    }
+                })
+            },
         }
     })
 </script>
