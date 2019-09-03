@@ -376,7 +376,7 @@
         <div class="carousel-inner">
             <div class="item" :class="{active:curIndex==index}" v-for="(item,index) in lunbo">
                 <a :href="lunboPages[index]">
-                    <img :src="item.imgPath" alt="" style="width: 100%; min-height: 500px;">
+                    <img :src="item.imgPath" alt="" style="width: 100%;">
                 </a>
             </div>
         </div>
@@ -474,54 +474,69 @@
                         海科集团始建于1988年，目前已发展成为集石化能源、特种化学品、新能源材料、医药、融资租赁、国际贸易等为一体的综合性大型跨国企业集团。集团下属公司分布在东营、上海、江苏、浙江、安徽、香港、韩国和新加坡等国家和地区。集团总资产达185亿元，拥有员工4500余人。
                         凭借销售业绩的高质量增长荣膺达沃斯论坛“全球成长型公司”称号，是“国家高新技术企业”、“中国企业500强”、“中国制造业500强”、“国家级智能制造试点示范项目”。近年来，海科围绕转型变革精准发力，企业保持了稳健的发展势头。2018年实现销售收入620亿元。
                     </p>
-                </div>
-                <p class="main-box visible-xs visible-sm">
+                </div>-->
+                <div class="top-main" v-html="videoInfo.content"></div>
+                <!--<p class="main-box visible-xs visible-sm">
                     海科集团始建于1988年，目前已发展成为集石化能源、特种化学品、新能源材料、医药、融资租赁、国际贸易等为一体的综合性大型跨国企业集团。集团下属公司分布在东营、上海、江苏、浙江、安徽、香港、韩国和新加坡等国家和地区。集团总资产达185亿元，拥有员工4500余人。
                     凭借销售业绩的高质量增长荣膺达沃斯论坛“全球成长型公司”称号，是“国家高新技术企业”、“中国企业500强”、“中国制造业500强”、“国家级智能制造试点示范项目”。近年来，海科围绕转型变革精准发力，企业保持了稳健的发展势头。2018年实现销售收入620亿元。
                 </p>-->
-                <div v-html="videoInfo.content"></div>
+                <p class="main-box visible-xs visible-sm" v-html="videoInfo.content"></p>
+
             </div>
         </div>
 
+        <!--视频列表-->
         <div class=" animate-box container">
             <div class="row">
                 <div class="container" style="text-align: center;">
-
-                    <div>
-                        <!--id="playOne"-->
-                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" v-for="(item,index) in videoList"
-                             :id="'play'+index">
-                            <video id="video1" class="same-video" width="349.984" height="200"
-                                   onmouseover="videoPlayback(1)" onmouseout="videoStopped(1)">
-                                <source :src="item.videoPath" type="video/mp4">
-                            </video>
-                            <img src="images/play.jpg" class="videoed" id="img1"/>
-                        </div>
-
-                        <!--<div class="col-xs-12 col-md-4 hidden-xs hidden-sm" id="playTwo">
-                            <video id="video2" class="same-video" width="349.984" height="200"
-                                   onmouseover="videoPlayback(2)" onmouseout="videoStopped(2)">
-                                <source src="images/movie.mp4" type="video/mp4">
-                            </video>
-                            <img src="images/play.jpg" class="videoed" id="img2"/>
-                        </div>
-
-                        <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" id="playThree">
-                            <video id="video3" class="same-video" width="349.984" height="200"
-                                   onmouseover="videoPlayback(3)" onmouseout="videoStopped(3)">
-                                <source src="images/movie.mp4" type="video/mp4">
-                            </video>
-                            <img src="images/play.jpg" class="videoed" id="img3"/>
-                        </div>-->
+                    <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" v-for="(item,index) in videoList" :id="'play'+index">
+                        <video
+                                :index="index"
+                                :id="'video'+index"
+                                class="same-video" width="349.984" height="200"
+                                @mouseover="videoPlayback(index)"
+                                @mouseout="videoStopped(index)"
+                        >
+                            <source :src="item.videoPath" type="video/mp4">
+                        </video>
+                        <img src="images/play.jpg" class="videoed" :id="'img'+index"/>
                     </div>
 
-                    <!--这个是在手机端显示的-->
+                    <!--移动端-->
+                    <div class="col-xs-12 col-md-4 hidden-md hidden-lg same-player" id="playFour" v-if="videoList.length>0">
+                        <video id="mobileVideo" class="same-video" controls="controls">
+                            <source :src="videoList[videoList.length-1].videoPath" type="video/mp4">
+                        </video>
+                        <img src="images/play.jpg" class="videoed" id="mobileVideoImg" @click="mobileClick" />
+                    </div>
+
+                    <!--<div class="col-xs-12 col-md-4 hidden-xs hidden-sm" id="playOne">
+                        <video id="video1" class="same-video" width="349.984" height="200" onmouseover="videoPlayback(1)" onmouseout="videoStopped(1)">
+                            <source src="images/movie.mp4" type="video/mp4">
+                        </video>
+                        <img src="images/play.jpg" class="videoed" id="img1" />
+                    </div>
+
+                    <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" id="playTwo">
+                        <video id="video2" class="same-video" width="349.984" height="200" onmouseover="videoPlayback(2)" onmouseout="videoStopped(2)">
+                            <source src="images/movie.mp4" type="video/mp4">
+                        </video>
+                        <img src="images/play.jpg" class="videoed" id="img2" />
+                    </div>
+
+                    <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" id="playThree">
+                        <video id="video3" class="same-video" width="349.984" height="200" onmouseover="videoPlayback(3)" onmouseout="videoStopped(3)">
+                            <source src="images/movie.mp4" type="video/mp4">
+                        </video>
+                        <img src="images/play.jpg" class="videoed" id="img3" />
+                    </div>
                     <div class="col-xs-12 col-md-4 hidden-md hidden-lg same-player" id="playFour">
                         <video id="video4" class="same-video" autoplay="autoplay" controls="controls">
                             <source src="images/banner.mp4" type="video/mp4">
                         </video>
-                        <img src="images/play.jpg" class="videoed" id="img4"/>
-                    </div>
+                        <img src="images/play.jpg" class="videoed" id="img4" />
+                    </div>-->
+
                 </div>
             </div>
         </div>
@@ -1185,100 +1200,85 @@
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-    // $('.autoTab').tabNav();
-    $('#zA7n').zA7n();
+    //$('.autoTab').tabNav();
+    //$('#zA7n').zA7n();
     //$('#playOne').autoVideo();
     //$('#playTwo').autoVideo();
     //$('#video4').autoVideo();
     //$('#playThree').autoVideo();
-
-    //video4播放
-    $("#img4").click(function () {
-        $(this).hide();
-        $("#video4")[0].play();
-    })
-
-    //鼠标移进去
-    function videoPlayback(index) {
-        var video_id = "video" + index;
-        var img_id = "#img" + index;
-        $(img_id).hide();
-        var video = document.getElementById(video_id);
-        //给视频标签添加缓存播放---video标签属性。
-        video.setAttribute("autoplay", "autoplay")
-        //给视频标签添加循环播放---video标签属性。
-        video.setAttribute("loop", "loop")
-        //播放视频
-        video.play();
-    }
-
-    //鼠标离开
-    function videoStopped(index) {
-        var video_id = "video" + index;
-        var img_id = "#img" + index;
-        $(img_id).show();
-        //获取视频标签
-        var video = document.getElementById(video_id);
-        //停止播放
-        video.pause();
-    }
-
-
 </script>
 
 <script>
     new Vue({
         el: '.vueSwiper',
         data: {
-            curIndex: 0,
-            lunbo: [], //首页轮播图
-            lunboPages: ['about_introduce.html', 'industry_chemical.html', 'college.html', 'institute.html'], //轮播页面跳转
-            word: [], //世界外脑合作 31
-            indexGuanLi: [], //管理体系 32
-            guanLiIcon: ['&#xe610;', '&#xe61d;', '&#xe619;', '&#xe611;', '&#xe60f;'], // 管理体系icon
-            videoList: [], // 视频区域 33
-            imgs: [], //首页3+2
-            videoInfo:'', //视频区域上方信息
-
             // 首页banner
+            curIndex: 0,
+            lunbo: [
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'}
+            ],
+            lunboPages: ['about_introduce.html', 'industry_chemical.html', 'college.html', 'institute.html'], //轮播页面跳转
             pageBanner:1, //页码
             rowsBanner:10, //每页条数
             liveBanner:0, //未冻结 1冻结
             selectAddr:1, //banner图  1--首页z  2--人才招聘校园招聘 employ.html  3--社会招聘z 4--海科学院z
 
             // 首页信息
+            videoInfo:{
+               content:'<h3>这是一个苹果</h3><p>张张</p><p>22222222222222222222222</p>'
+            }, //视频区域上方信息
             pageInfo:1,
             rowsInfo:10,
             liveInfo:0,
 
+            // 视频列表
+            videoList: [
+                {videoPath:'./images/banner.mp4'},
+                {videoPath:'./images/movie.mp4'},
+            ],
+            pageVideo:1,
+            rowsVideo:10,
+            liveVideo:0,
+            otherShow:1,//1-首页z；2--海科视角-新闻媒体-宣传片z  3--人才招聘-海外人才招进  4--人才招聘校园招聘z employ.html
+
             // 首页3+2
+            imgs: [
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'},
+                {imgPath:'./images/banner2.png'}
+            ],
             pageLogo:1,
             rowsLogo:10,
             liveLogo:0,
 
             // 管理体系+2
+            indexGuanLi: [
+                {title:'1',content:'111'},
+            ],
+            guanLiIcon: ['&#xe610;', '&#xe61d;', '&#xe619;', '&#xe611;', '&#xe60f;'], // 管理体系icon
             pageGuanLi:1,
             rowsGuanLi:10,
             liveGuanLi:0,
 
             // 世界外脑合作+2
+            word: [
+                {imgPath:'./images/banner2.png',title:'123'},
+            ],
             pageWorld:1,
             rowsWorld:10,
             liveWorld:0,
-
-            // 视频列表
-            pageVideo:1,
-            rowsVideo:10,
-            liveVideo:0,
-            otherShow:1,//1-首页z；2--海科视角-新闻媒体-宣传片z  3--人才招聘-海外人才招进  4--人才招聘校园招聘z employ.html
         },
         mounted(){
             this.getLunbo()
-            this.getWord()
-            this.getGuanli()
+            this.getInfo()
             this.getVideo()
             this.getImgs()
-            this.getInfo()
+            this.getGuanli()
+            this.getWord()
         },
         methods: {
             // 首页轮播
@@ -1289,21 +1289,6 @@
                         var res = JSON.parse(res)
                         this.lunbo = res.data.rows
                         console.log(this.lunbo);
-                    },
-                    error(err){
-                        console.log(err);
-                    }
-                })
-            },
-
-            // 首页获取图片3+2  32
-            getImgs(){
-                $.ajax({
-                    url: api+`/logo/frontEndList/${this.pageLogo}/${this.rowsLogo}/${this.liveLogo}`,
-                    success: (res) => {
-                        var res = JSON.parse(res)
-                        this.imgs = res.data.rows
-                        console.log(this.imgs);
                     },
                     error(err){
                         console.log(err);
@@ -1327,15 +1312,33 @@
                 })
             },
 
-            // 世界合作 34
-            getWord(){
+            // 视频列表 36
+            getVideo(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+`/worldCooperation/frontEndList/${this.pageWorld}/${this.rowsWorld}/${this.liveWorld}`,
+                    url: api+`/haikeVideo/frontEndList/${this.pageVideo}/${this.rowsVideo}/${this.liveVideo}/${this.otherShow}`,
                     success: (res) => {
                         var res = JSON.parse(res)
-                        this.word =res.data.rows
-                        console.log(this.word);
+                        this.videoList = res.data.rows
+                        console.log(this.videoList);
+                        this.$nextTick(() => {
+                            this.videoList.forEach((item, index) => {
+                                // 自动播放
+                                $("#play" + index).autoVideo()
+                            })
+                        })
+                    }
+                })
+            },
+
+            // 首页获取图片3+2  32
+            getImgs(){
+                $.ajax({
+                    url: api+`/logo/frontEndList/${this.pageLogo}/${this.rowsLogo}/${this.liveLogo}`,
+                    success: (res) => {
+                        var res = JSON.parse(res)
+                        this.imgs = res.data.rows
+                        console.log(this.imgs);
                     },
                     error(err){
                         console.log(err);
@@ -1359,23 +1362,49 @@
                 })
             },
 
-            // 视频列表 36
-            getVideo(){
+            // 世界合作 34
+            getWord(){
                 // '/newsType/'+this.type
                 $.ajax({
-                    url: api+`/haikeVideo/frontEndList/${this.pageVideo}/${this.rowsVideo}/${this.liveVideo}/${this.otherShow}`,
+                    url: api+`/worldCooperation/frontEndList/${this.pageWorld}/${this.rowsWorld}/${this.liveWorld}`,
                     success: (res) => {
                         var res = JSON.parse(res)
-                        this.videoList = res.data.rows
-                        console.log(this.videoList);
-                        this.$nextTick(() => {
-                            this.videoList.forEach((item, index) => {
-                                // 自动播放
-                                $("#play" + index).autoVideo()
-                            })
-                        })
+                        this.word =res.data.rows
+                        console.log(this.word);
+                    },
+                    error(err){
+                        console.log(err);
                     }
                 })
+            },
+
+
+            videoPlayback(index) {
+                var video_id = "video" + index;
+                var img_id = "#img" + index;
+                $(img_id).hide();
+                var video = document.getElementById(video_id);
+                //给视频标签添加缓存播放---video标签属性。
+                video.setAttribute("autoplay", "autoplay")
+                //给视频标签添加循环播放---video标签属性。
+                video.setAttribute("loop", "loop")
+                //播放视频
+                video.play();
+            },
+
+            videoStopped(index) {
+                var video_id = "video" + index;
+                var img_id = "#img" + index;
+                $(img_id).show();
+                //获取视频标签
+                var video = document.getElementById(video_id);
+                //停止播放
+                video.pause();
+            },
+
+            mobileClick(){
+                $("#mobileVideoImg").hide();
+                $("#mobileVideo")[0].play();
             }
         }
     })

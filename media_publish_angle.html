@@ -576,16 +576,25 @@
     new Vue({
         el: '.vueSwiper',
         data: {
-            list: '', //出版物
-            list2: '', //宣传片
+            list: [
+                {
+                    content:'<h3>这是一个苹果</h3><p>张张</p><p>22222222222222222222222</p>'
+                },
+                {
+                    content:'<h3>这是一个苹果</h3><p>张张</p><p>22222222222222222222222</p>'
+                }
+            ],
             curIndex: -1,
 
             page:1,
             rows:10,
             live:0,
 
-            // 视频列表
-            videoList:[],
+            // 宣传片
+            videoList:[
+                {videoPath:'./images/banner.mp4'},
+                {videoPath:'./images/movie.mp4'},
+            ],
             pageVideo:1,
             rowsVideo:10,
             liveVideo:0,

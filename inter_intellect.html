@@ -395,7 +395,7 @@
                                 <div class="col-sm-7">
                                     <h4 class="title-h4">{{item.title}}</h4>
                                     <p>
-                                        {{item.context1}}
+                                        {{item.content}}
                                         <!--建成集团全面覆盖的智能化体系，确保集团全部业务的联动与数据互通，是海科集团挖掘数据价值的前置条件。35个主要信息系统、100%的关键业务覆盖率，奠定了海科集团业务运行效率及运营管理水平提升的基础。智能协同办公系统、智能计量系统、智能检测LIMS系统、智能生产管理系统、智能黑屏系统、先进控制系统、智能物流调度系统、智能营销和自助电商系统、智能采购系统九大系统造已经为企业及合作方创造了巨大的价值。-->
                                     </p>
                                 </div>
@@ -537,7 +537,7 @@
                 </div>
 
                 <!--预见未来模块开始-->
-                <div class="container  mid-box">
+                <div class="container mid-box">
                     <div class="formal-establish">
                         <ul class="institute-box" style="padding:0 10% 0 0;">
                             <br>
@@ -545,7 +545,7 @@
                                 <h4>{{item.title}}</h4>
                                 <img src="images/build03.png" alt="" style="width: 100%">
                                 <p style="font-size: 12px">
-                                    {{item.context1}}
+                                    {{item.content}}
                                 </p>
                             </li>
 
@@ -747,8 +747,14 @@
             page:1,
             rows:10,
             live:0,
-            result:[], //成果
-            list:[], //列表
+            result:[
+
+            ], //成果
+            list:[
+                {
+                    title:'123',content:'456'
+                }
+            ], //列表
             live1:0,
             selectTitle:'1',//1--智能应用，2--自主研发，3--聚焦发展，4--遇见未来
         },

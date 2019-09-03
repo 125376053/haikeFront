@@ -350,11 +350,11 @@
     <div class="employ-banner">
         <!--banner-->
         <!--<img class="hidden-xs hidden-sm" src="images/emplyee_banner.png" width="100%"/>-->
-        <img class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>
+        <img v-if="lunbo" class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>
         <!--视频-->
         <div class="same-player employ-player mob-employ-player" id="playEmploy">
             <!--<video class="same-video" src="images/banner.mp4"></video>-->
-            <video class="same-video" :src="videoList.videoPath"></video>
+            <video v-if="videoList" class="same-video" :src="videoList.videoPath"></video>
             <a data-toggle="modal" data-target="#videoplaybox"> <img src="images/play.jpg" class="videoed"/></a>
         </div>
 
@@ -838,31 +838,6 @@
 </script>
 <script>
 
-    $('#playEmploy').autoVideo();
-    $('.row3').adipoli({
-        'startEffect': 'transparent',
-        'hoverEffect': 'boxRandom'
-    });
-
-
-    $("#playEmploy").hover(function () {
-        $('.videoed').show();
-    }, function () {
-        $('.videoed').hide();
-    });
-
-    $('.videoed').click(function () { //这个视频被点击后执行
-        var videohtml = '<video width="100%" height="auto" controls id="haivideo"><source src="images/banner.mp4" type="video/mp4" /><embed type="application/x-shockwave-flash" src="images/banner.mp4" width="100%" height="auto" quality="high"></video>';
-        $("#videoplaybox").find(".modal-body").html(videohtml);
-        var myVideo = document.getElementById("haivideo");
-        myVideo.play();
-    });
-    $('#videoplaybox').on('hidden.bs.modal', function () {
-        var myVideo = document.getElementById("haivideo");
-        myVideo.pause();
-    });
-
-
 </script>
 
 <script>
@@ -881,14 +856,14 @@
             selectOtherShow: 2,  //1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0-代表新闻中心调用
 
             // 视频列表
-            videoList:[],
+            videoList: {videoPath:'./images/banner.mp4'},
             pageVideo:1,
             rowsVideo:10,
             liveVideo:0,
             otherShow:4,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘-海外人才招进 4--人才招聘-校园招聘
 
             // 首页banner
-            lunbo:[],
+            lunbo:{imgPath:'./images/banner2.png'},
             pageBanner:1, //页码
             rowsBanner:10, //每页条数
             liveBanner:0, //未冻结 1冻结
@@ -898,8 +873,36 @@
             this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
             this.getList(this.url)
             $('#tabEmploy').tabNav();
+
             this.getVideo()
             this.getLunbo()
+
+            // 视频和banner
+            this.$nextTick(()=>{
+                $('#playEmploy').autoVideo();
+                $('.row3').adipoli({
+                    'startEffect': 'transparent',
+                    'hoverEffect': 'boxRandom'
+                });
+
+
+                $("#playEmploy").hover(function () {
+                    $('.videoed').show();
+                }, function () {
+                    $('.videoed').hide();
+                });
+
+                $('.videoed').click(function () { //这个视频被点击后执行
+                    var videohtml = '<video width="100%" height="auto" controls id="haivideo"><source src="images/banner.mp4" type="video/mp4" /><embed type="application/x-shockwave-flash" src="images/banner.mp4" width="100%" height="auto" quality="high"></video>';
+                    $("#videoplaybox").find(".modal-body").html(videohtml);
+                    var myVideo = document.getElementById("haivideo");
+                    myVideo.play();
+                });
+                $('#videoplaybox').on('hidden.bs.modal', function () {
+                    var myVideo = document.getElementById("haivideo");
+                    myVideo.pause();
+                });
+            })
         },
         methods: {
             // 招聘岗位
