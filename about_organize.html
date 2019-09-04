@@ -362,16 +362,17 @@
                 <li class="col-xs-12">
                     <div class="product-section product-features">
                         <h3 class="animate-box hidden-xs hidden-sm" style="font-size: 38px;">海科发展里程碑</h3>
+
                         <div class="product-wrapper">
                             <div class="product-body swiper-container swiper-container-horizontal swiper-container-pc">
-                                <ul class="features-slide swiper-wrapper organize-head"
-                                    style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                <!--transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;-->
+                                <ul class="features-slide swiper-wrapper organize-head" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
 
                                     <li class="features-item swiper-slide animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                                         <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
-                                        <div class="zlzz-div">
-                                            <img :src="api+item.imgPath" width="100%"/>
-                                            <p class="zlzz-p">{{item.content}}</p>
+                                        <div class="zlzz-div" style="min-height: 100px;">
+                                            <img :src="api+item.imgPath" width="27" height="27" style="padding-right: 0;padding-left: 0;" />
+                                            <p class="zlzz-p" style="padding-left: 0;margin-top: 10px;">{{item.content}}张超杰张超杰张超杰张超杰张超杰</p>
                                         </div>
                                     </li>
 
@@ -447,8 +448,8 @@
                                     <li class="features-item swiper-slide animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                                         <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
 
-                                        <div class="zlzz-div" style="min-height:50px;">
-                                            <img :src="api+item.imgPath" width="100%"/>
+                                        <div class="zlzz-div" style="">
+                                            <img :src="api+item.imgPath"/>
                                             <p class="zlzz-p">{{item.content}}</p>
                                         </div>
                                     </li>

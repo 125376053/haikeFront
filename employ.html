@@ -350,7 +350,7 @@
     <div class="employ-banner">
         <!--banner-->
         <!--<img class="hidden-xs hidden-sm" src="images/emplyee_banner.png" width="100%"/>-->
-        <img v-if="lunbo" class="hidden-xs hidden-sm" :src="lunbo.imgPath" width="100%"/>
+        <img v-if="lunbo" class="hidden-xs hidden-sm" :src="api+lunbo.imgPath" width="100%"/>
         <!--视频-->
         <div class="same-player employ-player mob-employ-player" id="playEmploy">
             <!--<video class="same-video" src="images/banner.mp4"></video>-->
@@ -397,7 +397,7 @@
                 <li class="tab-box">
                     <ul class="row no-space defaule-shadow img-lists-3 mob-employ-site">
                         <li class="col-xs-12 col-sm-6 col-md-4" v-for="(item,index) in list">
-                            <a class="arrow-block4 hover-white" href="javascript:void(0);">
+                            <a :href="'new21.html?id='+item.id" class="arrow-block4 hover-white">
                                 <h2 class="employ-title">校园招聘</h2>
                                 <h3 class="employ-type">{{item.title}}</h3>
                                 <p class="employ-inf">
@@ -467,7 +467,7 @@
                         </li>-->
 
                     </ul>
-                    <div class="text-center animate-box">
+                    <!--<div class="text-center animate-box">
                         <ul class="pagination visible-xs visible-sm mob-page">
                             <li><a class="fs" href="javascript:void(0);">&lt;&lt;</a></li>
                             <li><a class="fs" href="javascript:void(0);">&gt;&gt;</a></li>
@@ -477,7 +477,7 @@
                             <li><span>页</span></li>
                             <li class="fs"><a href="javascript:void(0);">GO</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                 </li>
                 <!--招聘流程-->
                 <li class="tab-box ">
