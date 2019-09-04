@@ -645,12 +645,6 @@
                         var res = JSON.parse(res)
                         this.videoList = res.data.rows
                         console.log(this.videoList);
-                        this.$nextTick(() => {
-                            this.videoList.forEach((item, index) => {
-                                // 自动播放
-                                $("#play" + index).autoVideo()
-                            })
-                        })
                     }
                 })
             },
