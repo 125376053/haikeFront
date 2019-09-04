@@ -487,7 +487,7 @@
 
 
         <!--视频列表-->
-        <div class=" animate-box container" v-if="videoList">
+        <div class=" animate-box container">
             <div class="row">
                 <div class="container" style="text-align: center;">
                     <div class="col-xs-12 col-md-4 hidden-xs hidden-sm" v-for="(item,index) in videoList" :id="'play'+index">
@@ -498,7 +498,7 @@
                                 class="same-video" width="349.984" height="200"
                                 @mouseover="videoPlayback(index)"
                                 @mouseout="videoStopped(index)"
-                                :src="api+item.videoPath"
+                                :src="item.videoPath"
                         >
                             <!--<source :src="api+item.videoPath" type="video/mp4">-->
                         </video>
@@ -508,7 +508,7 @@
                     <!--移动端-->
                     <div class="col-xs-12 col-md-4 hidden-md hidden-lg same-player" id="playFour" v-if="videoList.length>0">
                         <video id="mobileVideo" class="same-video" controls="controls">
-                            <source :src="api+videoList[videoList.length-1].videoPath" type="video/mp4">
+                            <source :src="videoList[videoList.length-1].videoPath" type="video/mp4">
                         </video>
                         <img src="images/play.jpg" class="videoed" id="mobileVideoImg" @click="mobileClick" />
                     </div>
