@@ -356,7 +356,7 @@
             </div>
             <ul class="row container mid-box enter-pop-txt">
                 <li class="col-sm-4 animate-box fadeInUp animated-fast" v-for="(item,index) in list">
-                    <img :src="item.imgPath" width="100%"/>
+                    <img :src="api+item.imgPath" width="100%"/>
                     <p class="mask-txt">{{item.title}}</p>
                 </li>
                 <!--<li class="col-sm-4 animate-box ">
@@ -402,7 +402,7 @@
             </div>
             <ul class="mobile-entering_Haike container animate-box mid-box mob-enter-pop-txt">
                 <li v-for="(item,index) in list">
-                    <img :src="item.imgPath" width="100%"/>
+                    <img :src="api+item.imgPath" width="100%"/>
                     <p class="mask-txt">{{item.title}}</p>
                 </li>
                 <!--<li>
@@ -523,6 +523,7 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             list: '',
             page: 1,
             rows:10,

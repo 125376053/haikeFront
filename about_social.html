@@ -364,7 +364,7 @@
                 <li class="col-xs-12 col-md-6 animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                     <div class="news-img">
                         <a :href="'new21.html?id='+item.id">
-                            <img :src="item.imgPath" width="100%"/>
+                            <img :src="api+item.imgPath" width="100%"/>
                         </a>
                     </div>
                     <a class="news-title" :href="'new21.html?id='+item.id" style="font-size: 20px;">
@@ -488,10 +488,11 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             type: 2, //社会责任
             list: [
-                {imgPath:'./images/banner2.png',title:'123',id:1},
-                {imgPath:'./images/banner2.png',title:'456',id:2}
+               /* {imgPath:'./images/banner2.png',title:'123',id:1},
+                {imgPath:'./images/banner2.png',title:'456',id:2}*/
             ],
             page:1,
             rows:10,

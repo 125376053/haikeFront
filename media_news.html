@@ -362,7 +362,7 @@
                 <li class="col-xs-12 col-sm-6 animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                     <div class="news-img">
                         <a :href="'new21.html?id='+item.id">
-                            <img :src="item.imgpath"/>
+                            <img :src="api+item.imgPath"/>
                         </a>
                     </div>
                     <a class="news-title" :href="'new21.html?id='+item.id">
@@ -502,6 +502,7 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             list: '',
             page:1,
             rows:10,

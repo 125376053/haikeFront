@@ -370,7 +370,7 @@
             <li class="col-xs-12 col-sm-12 col-md-12 animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                 <a class="grow-block1 row">
                     <div class="col-xs-5 col-md-3">
-                        <img :src="item.imgPath" width="100%"/>
+                        <img :src="api+item.imgPath" width="100%"/>
                     </div>
                     <div class="col-xs-7 col-md-9">
                         <h2>{{item.title}}</h2>
@@ -530,6 +530,7 @@
     new Vue({
         el: '.vueSwiper',
         data: {
+            api:api+'/',
             type: 15, //成长历程
             list: '',
             page:1,

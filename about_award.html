@@ -354,7 +354,7 @@
         <img src="images/award_banner_mob.png" width="100%" height="3000px">
         <div class="award-img-mob text-center" id="mobile">
             <a href="###" v-for="(item,index) in list">
-                <img :src="item.imgPath" width="100%"/>
+                <img :src="api+item.imgPath" width="100%"/>
                 <h3>{{item.title}}</h3>
             </a>
             <!--<img src="images/culture2.png" width="100%"/>
@@ -399,7 +399,7 @@
                 <div class="inner" id="vueSwiper">
                     <div>
                         <a href="javascript:void(0);" v-for="(item,index) in list">
-                            <img class="cloudcarousel" :src="item.imgPath"/>
+                            <img class="cloudcarousel" :src="api+item.imgPath"/>
                             <p>{{item.title}}</p>
                         </a>
                         <!--<a href="javascript:void(0);">
@@ -520,6 +520,7 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             type: 1, //奖项荣誉
             list:[
                 {title:'123',imgpath:'./images/banner2.png'},

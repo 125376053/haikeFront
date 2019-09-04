@@ -579,8 +579,8 @@
                         <li class="col-xs-12 col-sm-12 col-md-6" v-for="(item,index) in list">
                             <a class="arrow-block2" href="javascript:void(0);">
                                 <div class="left-img">
-                                    <img class="hidden-xs hidden-sm" :src="item.imgPath" width="100%"/>
-                                    <img class="visible-xs visible-md" :src="item.imgPath" width="70%"/>
+                                    <img class="hidden-xs hidden-sm" :src="api+item.imgPath" width="100%"/>
+                                    <img class="visible-xs visible-md" :src="api+item.imgPath" width="70%"/>
                                 </div>
                                 <div class="right-inf">
                                     <h3 class="trip-title">{{item.title}}</h3>
@@ -676,7 +676,7 @@
                                 {{item.title}} <i class="hk">&#xe601;</i>
                             </h3>
                             <div v-if="curIndex==index">
-                                <img :src="item.imgPath" width="100%">
+                                <img :src="api+item.imgPath" width="100%">
                             </div>
                         </li>
                         <!--<li>
@@ -707,7 +707,7 @@
                                     </div>
                                 </div>
                                 <div class="employ-img col-xs-12 col-md-3 ">
-                                    <img :src="item.imgPath" width="100%"/>
+                                    <img :src="api+item.imgPath" width="100%"/>
                                 </div>
                                 <div class="employ-news col-xs-12 col-md-7 ">
                                     <h2 class="news-name">{{item.title}}</h2>
@@ -844,6 +844,7 @@
     new Vue({
         el: '.vueSwiper',
         data: {
+            api:api+'/',
             page: 1,
             type: 2, // 1社会招聘 2 学校招聘
             list: '',
@@ -856,14 +857,14 @@
             selectOtherShow: 2,  //1--学院新闻  2--人才招聘-雇主品牌，3--关于海科-社会责任 0-代表新闻中心调用
 
             // 视频列表
-            videoList: {videoPath:'./images/banner.mp4'},
+            videoList: {/*videoPath:'./images/banner.mp4'*/},
             pageVideo:1,
             rowsVideo:10,
             liveVideo:0,
             otherShow:4,//1-首页；2--海科视角-新闻媒体-宣传片 3--人才招聘-海外人才招进 4--人才招聘-校园招聘
 
             // 首页banner
-            lunbo:{imgPath:'./images/banner2.png'},
+            lunbo:{/*imgPath:'./images/banner2.png'*/},
             pageBanner:1, //页码
             rowsBanner:10, //每页条数
             liveBanner:0, //未冻结 1冻结

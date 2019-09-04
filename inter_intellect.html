@@ -400,7 +400,7 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-5">
-                                    <img :src="item.imgPath" width="100%" class="img-responsive">
+                                    <img :src="api+item.imgPath" width="100%" class="img-responsive" style="margin-top: 10px;">
                                 </div>
                             </li>
                             <!--<li class="row tab-box">
@@ -447,7 +447,7 @@
                             <div id="banner" class="swiper-container banner">
                                 <div class="row swiper-wrapper swiper-wrapper-img">
                                     <div class="swiper-slide col-sm-8" v-for="(item,index) in result">
-                                        <a href="#"><img :src="item.imgPath"></a>
+                                        <a href="#"><img :src="api+item.imgPath"></a>
                                     </div>
                                     <!--<div class="swiper-slide col-sm-8">
                                         <a href="#"><img src="images/chengguo2.png"></a>
@@ -543,7 +543,7 @@
                             <br>
                             <li class="institute-li tli animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                                 <h4>{{item.title}}</h4>
-                                <img src="images/build03.png" alt="" style="width: 100%">
+                                <img :src="api+item.imgPath" alt="" style="width: 100%">
                                 <p style="font-size: 12px">
                                     {{item.content}}
                                 </p>
@@ -590,7 +590,7 @@
                             <div id="banner1" class="swiper-container banner1">
                                 <div class="row swiper-wrapper swiper-wrapper-img">
                                     <div class="swiper-slide col-sm-8" v-for="(item,index) in result">
-                                        <a href="#"><img :src="item.imgPath"></a>
+                                        <a href="#"><img :src="api+item.imgPath"></a>
                                         <div class="build-titles">
                                         </div>
                                     </div>
@@ -700,7 +700,7 @@
     $('#playThree').autoVideo();
 
     //轮播图
-    var bannerSwiper = new Swiper('#banner', {
+    /*var bannerSwiper = new Swiper('#banner', {
         pagination: '.pagination',
         slidesPerView: 'auto',
         centeredSlides: true,
@@ -712,7 +712,7 @@
         pagination: {
             el: '#banner .pagination',
         }
-    });
+    });*/
     /*var bannerSwiper = new Swiper('#banner1', {
         pagination: '.pagination',
         slidesPerView: 'auto',
@@ -725,8 +725,8 @@
         pagination: {
             el: '#banner1 .pagination',
         }
-    });
-    var bannerSwiper = new Swiper('#banner2', {
+    });*/
+    /*var bannerSwiper = new Swiper('#banner2', {
         pagination: '.pagination',
         slidesPerView: 1.6,
         centeredSlides: true,
@@ -744,16 +744,17 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             page:1,
             rows:10,
             live:0,
             result:[
 
-            ], //成果
+            ],
             list:[
-                {
+                /*{
                     title:'123',content:'456'
-                }
+                }*/
             ], //列表
             live1:0,
             selectTitle:'1',//1--智能应用，2--自主研发，3--聚焦发展，4--遇见未来
@@ -781,7 +782,23 @@
                         console.log(this.result);
 
                         this.$nextTick(() => {
-                            $('.autoTab').tabNav();
+
+                            var bannerSwiper = new Swiper('#banner', {
+                                pagination: '.pagination',
+                                slidesPerView: 'auto',
+                                centeredSlides: true,
+                                paginationClickable: true,
+                                visibilityFullFit: true,
+                                <!-- loop: true, -->
+                                autoplay: true,
+                                slidesOffsetBefore: 15,
+                                observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                                observeParents:true,//修改swiper的父元素时，自动初始化swiper
+                                pagination: {
+                                    el: '#banner1 .pagination',
+                                }
+                            });
+
                             var bannerSwiper = new Swiper('#banner1', {
                                 pagination: '.pagination',
                                 slidesPerView: 'auto',
@@ -791,6 +808,8 @@
                                 <!-- loop: true, -->
                                 autoplay: true,
                                 slidesOffsetBefore: 15,
+                                observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                                observeParents:true,//修改swiper的父元素时，自动初始化swiper
                                 pagination: {
                                     el: '#banner1 .pagination',
                                 }
@@ -801,6 +820,8 @@
                                 centeredSlides: true,
                                 paginationClickable: true,
                                 visibilityFullFit: true,
+                                observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                                observeParents:true,//修改swiper的父元素时，自动初始化swiper
                                 loop: true,
                                 autoplay: true,
                                 pagination: {
@@ -817,7 +838,7 @@
                     success: (res) => {
                         var res = JSON.parse(res)
                         console.log(res);
-                        this.list = res.data.rows
+                        this.list = res.data
                         console.log(this.list);
 
                         this.$nextTick(() => {

@@ -382,12 +382,12 @@
                     <img src="images/yiyao1.png" width="100%">
                 </div>
             </li>-->
-            <li class="animate-box" @click="showImg(index)" v-for="(item,index) in list">
+            <li class="animate-box fadeInUp animated-fast" @click="showImg(index)" v-for="(item,index) in list">
                 <h3 class="publick-title toggle-shadow clickBt" style="cursor:pointer;">
                     {{item.title}} <i class="hk">&#xe601;</i>
                 </h3>
                 <div v-if="curIndex==index">
-                    <img :src="item.imgPath" width="100%">
+                    <img :src="api+item.imgPath" width="100%">
                 </div>
             </li>
             <!--<li class="animate-box">
@@ -506,16 +506,17 @@
     new Vue({
         el: '.vueSwiper',
         data: {
+            api:api+'/',
             page: 1,
             list: [
-                {
+                /*{
                     title:'1',
                     imgPath:'./images/banner2.png'
                 },
                 {
                     title:'2',
                     imgPath:'./images/banner2.png'
-                }
+                }*/
             ],
             curIndex: -1, //点击显示图片
             rows: 10,

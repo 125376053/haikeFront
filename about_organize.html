@@ -370,7 +370,7 @@
                                     <li class="features-item swiper-slide animate-box fadeInUp animated-fast" v-for="(item,index) in list">
                                         <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
                                         <div class="zlzz-div">
-                                            <img :src="item.imgPath" width="100%"/>
+                                            <img :src="api+item.imgPath" width="100%"/>
                                             <p class="zlzz-p">{{item.content}}</p>
                                         </div>
                                     </li>
@@ -448,7 +448,7 @@
                                         <h3 class="animate-box about-time-h fadeInUp animated-fast">{{item.year}}</h3>
 
                                         <div class="zlzz-div" style="min-height:50px;">
-                                            <img :src="item.imgPath" width="100%"/>
+                                            <img :src="api+item.imgPath" width="100%"/>
                                             <p class="zlzz-p">{{item.content}}</p>
                                         </div>
                                     </li>
@@ -648,9 +648,10 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             type: 3, //时间轴
             list: [
-                {year:2018,content:'123',imgPath:'./images/banner2.png'}
+                //{year:2018,content:'123',imgPath:'./images/banner2.png'}
             ],
             page:1,
             rows:10,

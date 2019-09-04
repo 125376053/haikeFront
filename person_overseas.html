@@ -528,7 +528,7 @@
                         海科集团首席科学家<br/>CHIEF SCIENTIST
                     </p>-->
 
-                    <img :src="item.imgPath" width="60%"/>
+                    <img :src="api+item.imgPath" width="60%"/>
                     <div class="person-xj" v-if="index==0">
                         <h3>波士顿大学<span> 专业宣讲</span></h3><br/>
                         <span class="person-eg">{{item.titleEN}}</span>
@@ -731,7 +731,7 @@
 
                 <div class="mobile-person-xj">波士顿大学专业宣讲<span></span></div>
                 <div class="mobile-person-ul" v-for="(item,index) in zuji">
-                    <img :src="item.imgPath" width="100%"/>
+                    <img :src="api+item.imgPath" width="100%"/>
                     <p>{{item.title}}</p>
                 </div>
                 <!--<div class="mobile-person-ul">
@@ -827,9 +827,10 @@
     new Vue({
         el: '.vueSwiper',
         data: {
+            api:api+'/',
             zuji: [
-                {title:'123',titleEN:'zhang',imgPath:'./images/banner2.png'},
-                {title:'456',titleEN:'zhang222',imgPath:'./images/banner2.png'}
+                /*{title:'123',titleEN:'zhang',imgPath:'./images/banner2.png'},
+                {title:'456',titleEN:'zhang222',imgPath:'./images/banner2.png'}*/
             ],
             page:1,
             rows:10,
@@ -837,10 +838,10 @@
 
 
             gangwei:[
-                {
+                /*{
                     title:'1',adress:'2',jobRequirements:'3',salary:'4',
                     titleEN:'1',adressEN:'2',jobRequirementsEN:'3',salaryEN:'4'
-                }
+                }*/
             ],
             page1:1,
             rows1:10,
@@ -855,7 +856,7 @@
 
             // 视频列表
             videoList:{
-                videoPath:'./images/banner.mp4'
+                //videoPath:'./images/banner.mp4'
             },
             pageVideo:1,
             rowsVideo:10,

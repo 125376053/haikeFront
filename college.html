@@ -395,7 +395,7 @@
                 </div>-->
                 <div class="item" :class="{active:curIndex==index}" v-for="(item,index) in lunbo">
                     <a :href="lunboPages[index]">
-                        <img :src="item.imgPath" alt="" style="width: 100%; min-height: 500px;">
+                        <img :src="api+item.imgPath" alt="" style="width: 100%; min-height: 500px;">
                     </a>
                 </div>
             </div>
@@ -514,7 +514,7 @@
                     <div class="xy_date">{{new Date(item.time).toLocaleDateString().substring(0,6)}}</div>
                 </div>
                 <div class="xy_imgbox">
-                    <img :src="item.imgPath"/>
+                    <img :src="api+item.imgPath"/>
                 </div>
                 <div class="xy_main">
                     <div class="xy_name">{{item.title}}</div>
@@ -618,6 +618,7 @@
     new Vue({
         el: '.vueSwiper',
         data: {
+            api:api+'/',
             curIndex: 0,
             lunbo: [], //首页轮播图
             lunboPages: ['about_introduce.html', 'industry_chemical.html', 'college.html', 'institute.html'], //轮播页面跳转

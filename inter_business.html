@@ -370,7 +370,7 @@
                     <div class="icon-line animate-box fadeInUp animated-fast"></div>
                     <div class="manage-img animate-box fadeInUp animated-fast">
                         <p>{{item.content}}</p>
-                        <img style="min-height: 300px;" :src="item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>
+                        <img style="min-height: 300px;" :src="api+item.imgPath" class="img-responsive animate-box fadeInUp animated-fast" alt=""/>
                     </div>
                 </li>
 <!--                <li>
@@ -633,7 +633,7 @@
                         </div>
                         <div class="mobile-manage-img">
                             <p>{{item.content}}</p>
-                            <img :src="item.imgPath" class="img-responsive" alt=""/>
+                            <img :src="api+item.imgPath" class="img-responsive" alt=""/>
                         </div>
                     </div>
                 </li>
@@ -1207,10 +1207,11 @@
     new Vue({
         el: '#vueSwiper',
         data: {
+            api:api+'/',
             type: 5, //运营体系
             list:[
-                {title:'123',time:'2019/07/01',content:'1111111111',imgPath:'./images/banner2.png'},
-                {title:'456',time:'2019/07/21',content:'22222',imgPath:'./images/banner2.png'}
+                /*{title:'123',time:'2019/07/01',content:'1111111111',imgPath:'./images/banner2.png'},
+                {title:'456',time:'2019/07/21',content:'22222',imgPath:'./images/banner2.png'}*/
             ],
             page:1,
             rows:10,
