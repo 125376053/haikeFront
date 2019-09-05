@@ -408,7 +408,7 @@
                             <div class="news-img publish-img icon-video" :id="'mediaVideo0'+index" :videoindex="index"
                                  style="position: relative;">
                                 <a class="media-video same-player" href="javascript:void(0);">
-                                    <video class="same-video" :src="item.videoPath"></video>
+                                    <video class="same-video" :src="api+item.videoPath"></video>
                                     <a data-toggle="modal" data-target="#videoplaybox">
                                         <img v-if="curIndex==index" src="images/play.jpg" class="videoeds"
                                              @click="showVideo(index)"/>

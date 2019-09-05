@@ -355,7 +355,7 @@
         <img class="hidden-xs hidden-sm" src="images/Overseas.png" width="100%"/>
         <!--视频-->
         <div class="same-player employ-player mob-employ-player" id="playEmploy">
-            <video v-if="videoList" class="same-video" :src="videoList.videoPath"></video>
+            <video v-if="videoList" class="same-video" :src="api+videoList.videoPath"></video>
             <a data-toggle="modal" data-target="#videoplaybox"> <img src="images/play.jpg" class="videoed"/></a>
         </div>
 
