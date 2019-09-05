@@ -369,8 +369,8 @@
 
                     <ul class="row no-space public-ul" v-for="(item,index) in list">
                         <li class="col-xs-12 col-sm-12 col-md-12 ">
-                            <div class="news-img publish-img">
-                                <img :src="api+item.imgPath" width="85%"/>
+                            <div class="news-img publish-img" style="text-align: center; overflow: hidden;margin: 10px 0;">
+                                <img :src="api+item.imgPath"/>
                             </div>
                             <div>
                                 <h3>{{item.title}}</h3>

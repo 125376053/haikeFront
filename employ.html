@@ -1002,7 +1002,7 @@
             getIndex(navIndex){
                 this.navIndex = navIndex
                 if (navIndex == 1) {
-                    this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}/`
+                    this.url = api + `/socialOrCampusRecruitment/frontEndList/${this.page}/${this.rows}/${this.live}/${this.type}`
                 }
                 if (navIndex == 2) {
                     this.url = api + `/campuSeminar/frontEndList/${this.page}/${this.rows}/${this.live}`
@@ -1011,7 +1011,7 @@
                     this.url = api + `/campusEmployerBrand/frontEndList/${this.page}/${this.rows}/${this.live}`
                 }
                 if (navIndex == 4) {
-                    this.url = api + `/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}/`
+                    this.url = api + `/newsCenter/frontEndList/${this.page}/${this.rows}/${this.live}/${this.selectOtherShow}`
                 }
 
                 this.getList(this.url)
